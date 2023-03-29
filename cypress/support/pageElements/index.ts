@@ -1,1 +1,1 @@
-export * from "./pageElement";
+export * from "./homePageElements";
