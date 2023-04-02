@@ -6,7 +6,7 @@ export default defineConfig({
   viewportWidth: 1920,
   viewportHeight: 1080,
   chromeWebSecurity: false,
-  numTestsKeptInMemory: 0,
+  numTestsKeptInMemory: 20,
   env: {
     baseURL: "https://www.subaru.com.au/",
   },
@@ -15,7 +15,7 @@ export default defineConfig({
       // implement node event listeners here
       
     },
-    supportFile: "./packages/mining/tests/cypress/support/e2e.ts",
-    specPattern: "./packages/mining/tests/cypress/e2e/*.cy.ts",
+    //supportFile: "./packages/mining/tests/cypress/support/e2e.ts",
+    //specPattern: "/cypress/e2e/*.cy.ts",
   },
 });
