@@ -31,6 +31,21 @@ specsAndFeatureModalSubSections: [
   'Chassis and Mechanism',
   'Child Safety',
   'Lighting - Interior',
+],
+
+variantTabButton: 'button[data-test="common:navBarButton:variant"]',
+colourTabButton: 'button[data-test="common:navBarButton:subaru_colour"]',
+colourAccordion: 'h3[data-test="accordion:toggle:sectionTitle:Colour"]',
+
+wrxSedanColors: [
+  "Crystal White Pearl",
+  "Ice Silver Metallic",
+  "Ignition Red",
+  "WR Blue Pearl",
+  "Sapphire Blue Pearl",
+  "Magnetite Grey Metallic",
+  "Crystal Black Silica",
 ]
+
 
 };

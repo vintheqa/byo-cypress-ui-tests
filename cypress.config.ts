@@ -15,7 +15,7 @@ export default defineConfig({
       // implement node event listeners here
       
     },
-    //supportFile: "./packages/mining/tests/cypress/support/e2e.ts",
+    supportFile: "cypress/support/e2e.ts",
     //specPattern: "/cypress/e2e/*.cy.ts",
   },
 });

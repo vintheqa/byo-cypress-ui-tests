@@ -1,9 +1,10 @@
 import { configurePageElements,homePageElements,variantSelectionPageElements, urls } from "../pageElements";
 import { BaseObject } from "../pageObjects";
 
-//const $BaseObject = new BaseObject();
+const $BaseObject = new BaseObject();
 
 export class PageObject {
+
   goToRootPage() {
     cy.visit(Cypress.env("baseURL"));
     cy.get(homePageElements.menuBarMain).should('be.visible')
@@ -143,18 +144,44 @@ export class PageObject {
   validateFullSpecModalSectionAndSubSectionHeaders() {
     const modalSectionHeaders = configurePageElements.specsAndFeatureModalSections
     const modalSubSectionHeaders = configurePageElements.specsAndFeatureModalSubSections
-
     cy.get('div[role="dialog"]').find('span').should(($span) => {
       modalSectionHeaders.forEach((word) => {
         expect($span.text()).to.include(word);
       });
     });
-
     cy.get('div[role="dialog"]').find('h6').should(($span) => {
       modalSubSectionHeaders.forEach((word) => {
         expect($span.text()).to.include(word);
       });
     });
+  }
+
+  clickColourTab() {
+    $BaseObject.clickElement(configurePageElements.colourTabButton,0);
+    cy.wait(200);
+    $BaseObject.checkElementIsVisible(configurePageElements.colourAccordion,0,true)
+  }
+
+  validateWrxColourOptions(variant: string) {
+    if (variant == 'sedan'){
+      const variantColourCount: number = configurePageElements.wrxSedanColors.length
+      const variantColourOptions: any = configurePageElements.wrxSedanColors
+      cy.get('div[data-test*="option:type:color"]').should('have.lengthOf',variantColourCount)
+
+      for(let i = 0; i > variantColourCount; i++){
+        cy.get('div[data-test*="option:type:color"]').eq(i).click();
+        cy.get('span').contains(variantColourOptions[i]).should('be.visible');
+      }
+    } else if (variant == 'sportswagon'){
+      const variantColourCount: number = configurePageElements.wrxSedanColors.length
+      const variantColourOptions: any = configurePageElements.wrxSedanColors
+      cy.get('div[data-test*="option:type:color"]').should('have.lengthOf',variantColourCount)
+
+      for(let i = 0; i > variantColourCount; i++){
+        cy.get('div[data-test*="option:type:color"]').eq(i).click();
+        cy.get('span').contains(variantColourOptions[i]).should('be.visible');
+      }
+    }
   }
 
 
