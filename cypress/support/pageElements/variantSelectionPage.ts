@@ -23,5 +23,4 @@ export const variantSelectionPageElements = {
   wrxSportswagonAwd: 'div[data-test="productVariants:slide:AUVNHCKA8"]',
   wrxSportswagonAwdGt: 'div[data-test="productVariants:slide:AUVNHCKA8_G"]',
   wrxSportswagonAwdTs: 'div[data-test="productVariants:slide:AUVNHCKB8"]',
-
 };

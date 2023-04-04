@@ -1,6 +1,7 @@
-import { BaseObject, PageObject} from "../support/pageObjects"
+import {PageObject} from "../support/pageObjects"
+import { configurePageElements} from "../support/pageElements";
 
-const $BaseObject = new BaseObject();
+
 const $PageObject = new PageObject();
 
 describe("Build Your Own WRX - AWD Manual", () => {
@@ -25,11 +26,34 @@ describe("Build Your Own WRX - AWD Manual", () => {
     $PageObject.closeViewFullSpecModal();  
   });
 
-  it.only("CY_07 - 'Colour' section should display correct swatch names (eg. No special characters & numbers)", () => {
+  it("CY_07 - 'Colour' section should display correct swatch names (eg. No special characters & numbers)", () => {
+    const variantColourCount: number = configurePageElements.wrxSedanColors.length
+    const variantColourOptions = configurePageElements.wrxSedanColors
+
     $PageObject.goToWrxVariantConfigurePage('sedan awd manual');
     $PageObject.clickColourTab();
-    $PageObject.validateWrxColourOptions('sedan');
+    $PageObject.validateNumOfColourOptions(variantColourCount);
+    $PageObject.selectColour(0,variantColourOptions[0]);
+    $PageObject.selectColour(1,variantColourOptions[1]);
+    $PageObject.selectColour(2,variantColourOptions[2]);
+    $PageObject.selectColour(3,variantColourOptions[3]);
+    $PageObject.selectColour(4,variantColourOptions[4]);
+    $PageObject.selectColour(5,variantColourOptions[5]);
+    $PageObject.selectColour(6,variantColourOptions[6]);
+    $PageObject.selectColour(7,variantColourOptions[7]);
   });
+
+  it.only("CY_07 - Ability to select any variant color", () => {
+    const variantColourOptions = configurePageElements.wrxSedanColors
+
+    $PageObject.goToWrxVariantConfigurePage('sedan awd manual');
+    $PageObject.clickColourTab();
+    $PageObject.selectColour(2,variantColourOptions[2]);
+    $PageObject.validateCarImgSrc(configurePageElements.imgSrcWrxSedanAwdManualSolarOrangePearl);
+    $PageObject.validateColourSummaryAmount();
+
+  });
+
 
 
 });

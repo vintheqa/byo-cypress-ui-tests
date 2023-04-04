@@ -1,7 +1,4 @@
 import { configurePageElements,homePageElements,variantSelectionPageElements, urls } from "../pageElements";
-import { BaseObject } from "../pageObjects";
-
-const $BaseObject = new BaseObject();
 
 export class PageObject {
 
@@ -156,32 +153,31 @@ export class PageObject {
     });
   }
 
+
   clickColourTab() {
-    $BaseObject.clickElement(configurePageElements.colourTabButton,0);
+    cy.get(configurePageElements.colourTabButton).click();
     cy.wait(200);
-    $BaseObject.checkElementIsVisible(configurePageElements.colourAccordion,0,true)
+    cy.get(configurePageElements.colourAccordion).should('be.visible')
   }
 
-  validateWrxColourOptions(variant: string) {
-    if (variant == 'sedan'){
-      const variantColourCount: number = configurePageElements.wrxSedanColors.length
-      const variantColourOptions: any = configurePageElements.wrxSedanColors
-      cy.get('div[data-test*="option:type:color"]').should('have.lengthOf',variantColourCount)
+  validateNumOfColourOptions(numOfOptions: number) {
+    cy.get('div[id="customise_subaru_colour"]').find('div[data-test*="option:type:color"]').should('have.lengthOf',numOfOptions)
+  }
 
-      for(let i = 0; i > variantColourCount; i++){
-        cy.get('div[data-test*="option:type:color"]').eq(i).click();
-        cy.get('span').contains(variantColourOptions[i]).should('be.visible');
-      }
-    } else if (variant == 'sportswagon'){
-      const variantColourCount: number = configurePageElements.wrxSedanColors.length
-      const variantColourOptions: any = configurePageElements.wrxSedanColors
-      cy.get('div[data-test*="option:type:color"]').should('have.lengthOf',variantColourCount)
+  selectColour(buttonIndex: number, colourName: string) {
+    cy.get('div[id="customise_subaru_colour"]').find('div[data-test*="option:type:color"]').eq(buttonIndex).click();
+    cy.get('span[data-test*="summary:selected:featureTitle"]').eq(0).invoke('text').should('eq',colourName)
+  }
 
-      for(let i = 0; i > variantColourCount; i++){
-        cy.get('div[data-test*="option:type:color"]').eq(i).click();
-        cy.get('span').contains(variantColourOptions[i]).should('be.visible');
-      }
-    }
+  validateCarImgSrc(imgSrc: string) {
+    cy.get('img[data-test="image:variant:0"]').should('have.attr','src',imgSrc);
+  }
+
+  validateColourSummaryAmount() {
+    cy.get('span').contains('Show Full Summary').scrollIntoView().click();
+    cy.get('div[data-test="summary_expanded:section:subaru_colour"]').scrollIntoView();
+    cy.get('div[data-test="summary_expanded:section:subaru_colour"]').find('span').contains('$0.00');
+
   }
 
 

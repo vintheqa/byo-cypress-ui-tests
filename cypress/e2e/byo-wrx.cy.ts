@@ -1,6 +1,5 @@
-import { BaseObject, PageObject} from "../support/pageObjects"
+import {PageObject} from "../support/pageObjects"
 
-const $BaseObject = new BaseObject();
 const $PageObject = new PageObject();
 
 describe("Build Your Own WRX", () => {
