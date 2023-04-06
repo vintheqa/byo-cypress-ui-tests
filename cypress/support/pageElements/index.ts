@@ -1,4 +1,4 @@
 export * from "./configurePage";
 export * from "./homePageElements";
-export * from "./variantSelectionPage";
+export * from "./wrxPage";
 export * from "./urls";

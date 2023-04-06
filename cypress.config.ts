@@ -16,5 +16,6 @@ export default defineConfig({
     },
     supportFile: "cypress/support/e2e.{js,jsx,ts,tsx}",
     specPattern: "cypress/e2e/*.cy.ts",
+    pageLoadTimeout: 120000,
   },
 });
