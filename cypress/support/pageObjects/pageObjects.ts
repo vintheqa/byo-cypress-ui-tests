@@ -1,6 +1,9 @@
 import { configurePageElements,homePageElements,wrxPageElements, urls } from "../pageElements";
 
 export class PageObject {
+  clickElement(element){
+    cy.get(element).click();
+  }
 
   goToRootPage() {
     cy.visit(Cypress.env("baseURL"));
@@ -179,12 +182,12 @@ export class PageObject {
     cy.get('div[id="customise_subaruaccessorypack"]').find('p').contains('Styling Pack').eq(index).should('have.attr','data-option','accessory_pack:selected');
   }
 
-  validatedModalSelectedStylingPack(index: number) {
+  validateModalSelectedStylingPack(index: number) {
     this.clickShowFeaturesStylingPack(index);
     cy.get('button[data-test="button:accessory-pack:toggle"]').find('span').contains('Remove').should('be.visible');
   }
 
-  validatedOptionsSummaryAmount(index: number) {
+  validateOptionsSummaryAmount(index: number) {
     cy.get('div[id="customise_subaruaccessorypack"]')
     .find('div[data-test*="option:pack"]').eq(index)
     .find('span[data-test="option:price:primary"]')
@@ -193,8 +196,39 @@ export class PageObject {
       cy.get('div[data-test="summary_expanded:section:subaruaccessorypack"]').scrollIntoView();
       cy.get('div[data-test="summary_expanded:section:subaruaccessorypack"]').find('span').contains($optionAmount);
     })
+  }
+
+  clickAccessoriesTab() {
+    cy.get(configurePageElements.accessoriesTabButton).click();
+    cy.wait(200);
+    cy.get(configurePageElements.accessoriesAccordion).should('be.visible')
+  }
 
 
+  clickAccessories(accessoryCategory: string, accessoryName: string) {
+    cy.get(accessoryCategory).find('p').contains(accessoryName).click();
+  }
+
+  clickShowFullSummary(){
+    cy.get('span').contains('Show Full Summary').scrollIntoView().click();
+  }
+
+  validateAccessoriesSummaryAmount(accessoryCategory: string, index: number,accessoryName: string) {
+    cy.get(accessoryCategory)
+    .find('span[data-test="option:price:primary"]').eq(index)
+    .invoke('text').then(($accessoryAmount)=>{
+      cy.get('div[data-test="summary_expanded:section:subaru_accessories"]').scrollIntoView();
+      cy.get('div[data-test="summary_expanded:section:subaru_accessories"]').find('span').contains(accessoryName).siblings('span').contains($accessoryAmount).should('exist');
+    })
+  }
+
+  validateSelectedAccessoriesOnSummary(accessoryName: string, exists: boolean) {
+    if(exists == true){
+      cy.get('div[data-test="summary_expanded:section:subaru_accessories"]').find('span').contains(accessoryName).should('exist');
+    }else if(exists == false){
+      cy.get('div[data-test="summary_expanded:section:subaru_accessories"]').find('span').contains(accessoryName).should('not.exist');
+    }
+      
   }
 
 

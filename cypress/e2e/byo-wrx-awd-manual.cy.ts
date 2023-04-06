@@ -92,21 +92,61 @@ describe("Build Your Own WRX - AWD Manual", () => {
     $PageObject.goToVariantConfigurePage(urls.wrxAwdManualConfigurePage, wrxPageElements.sedanAwdManualConfigurePageUrl);
     $PageObject.clickOptionsTab();
     $PageObject.selectAddStylingPack(0);
-    $PageObject.validatedModalSelectedStylingPack(0);
+    $PageObject.validateModalSelectedStylingPack(0);
   });
 
   it("CY_14 - Ticked checkbox under 'Options', on any accessory pack, should be captured in the modal window", () => {
     $PageObject.goToVariantConfigurePage(urls.wrxAwdManualConfigurePage, wrxPageElements.sedanAwdManualConfigurePageUrl);
     $PageObject.clickOptionsTab();
     $PageObject.selectAddStylingPack(0);
-    $PageObject.validatedModalSelectedStylingPack(0);
+    $PageObject.validateModalSelectedStylingPack(0);
   });
 
   it("CY_15 - Selected accessory pack and price should display on the summary section", () => {
     $PageObject.goToVariantConfigurePage(urls.wrxAwdManualConfigurePage, wrxPageElements.sedanAwdManualConfigurePageUrl);
     $PageObject.clickOptionsTab();
     $PageObject.selectAddStylingPack(0);
-    $PageObject.validatedOptionsSummaryAmount(0);
+    $PageObject.validateOptionsSummaryAmount(0);
+  });
+
+  it("CY_16 - User should be able to select any accessories on any section under 'Accessories'", () => {
+    $PageObject.goToVariantConfigurePage(urls.wrxAwdManualConfigurePage, wrxPageElements.sedanAwdManualConfigurePageUrl);
+    $PageObject.clickAccessoriesTab();
+    $PageObject.clickAccessories(configurePageElements.protectionAccordion,'Door Visor');
+    $PageObject.clickElement(configurePageElements.performancePartsAccordion);
+    $PageObject.clickAccessories(configurePageElements.performancePartsAccordion,'STI Side Under Spoiler (Red)');
+    $PageObject.clickElement(configurePageElements.stylingAccordion);
+    $PageObject.clickAccessories(configurePageElements.stylingAccordion,'Trunk Spoiler');
+    $PageObject.clickElement(configurePageElements.cargoAccordion);
+    $PageObject.clickAccessories(configurePageElements.cargoAccordion,'Trunk Tray');
+    $PageObject.clickShowFullSummary();
+    $PageObject.validateAccessoriesSummaryAmount(configurePageElements.protectionAccordion,0,'Door Visor');
+    $PageObject.validateAccessoriesSummaryAmount(configurePageElements.performancePartsAccordion,0,'STI Side Under Spoiler (Red)');
+    $PageObject.validateAccessoriesSummaryAmount(configurePageElements.stylingAccordion,0,'Trunk Spoiler');
+    $PageObject.validateAccessoriesSummaryAmount(configurePageElements.cargoAccordion,0,'Trunk Tray');
+  });
+
+  it.only("CY_17 - User should be able to deselect any accessories selected on any section under 'Accessories'", () => {
+    $PageObject.goToVariantConfigurePage(urls.wrxAwdManualConfigurePage, wrxPageElements.sedanAwdManualConfigurePageUrl);
+    $PageObject.clickAccessoriesTab();
+    $PageObject.clickAccessories(configurePageElements.protectionAccordion,'Door Visor');
+    $PageObject.clickElement(configurePageElements.performancePartsAccordion);
+    $PageObject.clickAccessories(configurePageElements.performancePartsAccordion,'STI Side Under Spoiler (Red)');
+    $PageObject.clickElement(configurePageElements.stylingAccordion);
+    $PageObject.clickAccessories(configurePageElements.stylingAccordion,'Trunk Spoiler');
+    $PageObject.clickElement(configurePageElements.cargoAccordion);
+    $PageObject.clickAccessories(configurePageElements.cargoAccordion,'Trunk Tray');
+    $PageObject.clickShowFullSummary();
+    $PageObject.validateSelectedAccessoriesOnSummary('Door Visor',true);
+    $PageObject.validateSelectedAccessoriesOnSummary('STI Side Under Spoiler (Red)',true);
+    $PageObject.validateSelectedAccessoriesOnSummary('Trunk Spoiler',true);
+    $PageObject.validateSelectedAccessoriesOnSummary('Trunk Tray',true);
+    $PageObject.clickAccessories(configurePageElements.protectionAccordion,'Door Visor');
+    $PageObject.clickAccessories(configurePageElements.performancePartsAccordion,'STI Side Under Spoiler (Red)');
+    $PageObject.validateSelectedAccessoriesOnSummary('Door Visor',false);
+    $PageObject.validateSelectedAccessoriesOnSummary('STI Side Under Spoiler (Red)',false);
+    $PageObject.validateSelectedAccessoriesOnSummary('Trunk Spoiler',true);
+    $PageObject.validateSelectedAccessoriesOnSummary('Trunk Tray',true);
   });
 
 
