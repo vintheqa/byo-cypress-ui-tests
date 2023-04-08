@@ -52,12 +52,21 @@ protectionSummaryAmount:'h3[data-test="summary:selected:sectionTitle:Protection"
 performancePartsSummaryAmount:'h3[data-test="summary:selected:sectionTitle:STI Performance Parts""]',
 stylingSummaryAmount:'h3[data-test="summary:selected:sectionTitle:Styling"]',
 cargoSummaryAmount:'h3[data-test="summary:selected:sectionTitle:Cargo"]',
-
-
-
+servicePlanSummaryAmount:'div[data-test="summary_expanded:section:serviceplans"]',
 
 servicePlansTabButton: 'button[data-test="common:navBarButton:serviceplans"]',
 servicePlansAccordion: 'h3[data-test="accordion:toggle:sectionTitle:Service Plans"]',
+servicePlanName: 'p[data-test="customise:featureServicePlanName"]',
+servicePlanCheckbox: 'span[data-test="customise:featureServicePlanToggle"]',
+priceGuideLink: 'a[data-test="customise:featureServicePlanPriceGuide"]',
+serviceName: 'div[data-test="customise:featureServicePlanInterval"]',
+servicePrice: 'span[data-test="customise:featureServicePlanInterval:price"]',
+servicePlanTotalPrice: 'span[data-test="customise:featureServicePlanIntervalTotal"]',
+servicePlanPrice: 'span[data-test="customise:featureServicePlanPrice"]',
+
+financeButton: 'button[data-test="button:finance_product_tabs:finance"]',
+continueButtonCalculateModal: 'button[data-test="calculator:continueButton"]',
+
 
 
 };

@@ -2,6 +2,11 @@ import {PageObject} from "../support/pageObjects"
 import { configurePageElements, wrxPageElements, urls} from "../support/pageElements";
 
 const $PageObject = new PageObject();
+const variantColourCount: number = wrxPageElements.wrxSedanColorOptions.length
+const variantColourOptions = wrxPageElements.wrxSedanColorOptions
+const variantInteriorCount: number = wrxPageElements.wrxSedanInteriorOptions.length
+const variantInteriorOptions = wrxPageElements.wrxSedanInteriorOptions
+
 
 describe("Build Your Own WRX - AWD Manual", () => {
 
@@ -26,9 +31,6 @@ describe("Build Your Own WRX - AWD Manual", () => {
   });
 
   it("CY_07 - 'Colour' section should display correct swatch names (eg. No special characters & numbers)", () => {
-    const variantColourCount: number = wrxPageElements.wrxSedanColorOptions.length
-    const variantColourOptions = wrxPageElements.wrxSedanColorOptions
-
     $PageObject.goToVariantConfigurePage(urls.wrxAwdManualConfigurePage, wrxPageElements.sedanAwdManualConfigurePageUrl);
     $PageObject.clickColourTab();
     $PageObject.validateNumOfColourOptions(variantColourCount);
@@ -43,19 +45,15 @@ describe("Build Your Own WRX - AWD Manual", () => {
   });
 
   it("CY_08 - Ability to select any variant color", () => {
-    const variantColourOptions = wrxPageElements.wrxSedanColorOptions
-
     $PageObject.goToVariantConfigurePage(urls.wrxAwdManualConfigurePage, wrxPageElements.sedanAwdManualConfigurePageUrl);
     $PageObject.clickColourTab();
     $PageObject.selectColour(2,variantColourOptions[2]);
     $PageObject.validateCarImgSrc(wrxPageElements.imgSrcWrxSedanAwdManualSolarOrangePearl);
+    $PageObject.clickShowFullSummary();
     $PageObject.validateColourSummaryAmount();
   });
 
   it("CY_09 - 'Interior' section should display correct swatch names (eg. No special characters & numbers)", () => {
-    const variantInteriorCount: number = wrxPageElements.wrxSedanInteriorOptions.length
-    const variantInteriorOptions = wrxPageElements.wrxSedanInteriorOptions
-
     $PageObject.goToVariantConfigurePage(urls.wrxAwdManualConfigurePage, wrxPageElements.sedanAwdManualConfigurePageUrl);
     $PageObject.clickInteriorTab();
     $PageObject.validateNumOfInteriorOptions(variantInteriorCount);
@@ -63,18 +61,15 @@ describe("Build Your Own WRX - AWD Manual", () => {
   });
 
   it("CY_10 - Ability to select any interior", () => {
-    const variantInteriorOptions = wrxPageElements.wrxSedanInteriorOptions
-
     $PageObject.goToVariantConfigurePage(urls.wrxAwdManualConfigurePage, wrxPageElements.sedanAwdManualConfigurePageUrl);
     $PageObject.clickInteriorTab();
     $PageObject.selectInterior(0,variantInteriorOptions[0]);
     $PageObject.validateCarImgSrc(wrxPageElements.imgSrcWrxSedanAwdManualCeramicWhite);
+    $PageObject.clickShowFullSummary();
     $PageObject.validateInteriorSummaryAmount();
   });
 
   it("CY_11 - 'Show features' hyperlink under 'Options' section should display accessories", () => {
-    const variantInteriorOptions = wrxPageElements.wrxSedanInteriorOptions
-
     $PageObject.goToVariantConfigurePage(urls.wrxAwdManualConfigurePage, wrxPageElements.sedanAwdManualConfigurePageUrl);
     $PageObject.clickOptionsTab();
     $PageObject.validateNumOfStylingPackOptions(4);
@@ -106,6 +101,7 @@ describe("Build Your Own WRX - AWD Manual", () => {
     $PageObject.goToVariantConfigurePage(urls.wrxAwdManualConfigurePage, wrxPageElements.sedanAwdManualConfigurePageUrl);
     $PageObject.clickOptionsTab();
     $PageObject.selectAddStylingPack(0);
+    $PageObject.clickShowFullSummary();
     $PageObject.validateOptionsSummaryAmount(0);
   });
 
@@ -126,7 +122,7 @@ describe("Build Your Own WRX - AWD Manual", () => {
     $PageObject.validateAccessoriesSummaryAmount(configurePageElements.cargoAccordion,0,'Trunk Tray');
   });
 
-  it.only("CY_17 - User should be able to deselect any accessories selected on any section under 'Accessories'", () => {
+  it("CY_17 - User should be able to deselect any accessories selected on any section under 'Accessories'", () => {
     $PageObject.goToVariantConfigurePage(urls.wrxAwdManualConfigurePage, wrxPageElements.sedanAwdManualConfigurePageUrl);
     $PageObject.clickAccessoriesTab();
     $PageObject.clickAccessories(configurePageElements.protectionAccordion,'Door Visor');
@@ -149,8 +145,46 @@ describe("Build Your Own WRX - AWD Manual", () => {
     $PageObject.validateSelectedAccessoriesOnSummary('Trunk Tray',true);
   });
 
+  it("CY_18 - Ability to see the price breakdown included on the service plan", () => {
+    $PageObject.goToVariantConfigurePage(urls.wrxAwdManualConfigurePage, wrxPageElements.sedanAwdManualConfigurePageUrl);
+    $PageObject.clickServicePlansTab();
+    $PageObject.expandPriceGuide();
+    $PageObject.collapsePriceGuide();
+  })
 
+  it("CY_19 - Ability to select available Service Plan", () => {
+    $PageObject.goToVariantConfigurePage(urls.wrxAwdManualConfigurePage, wrxPageElements.sedanAwdManualConfigurePageUrl);
+    $PageObject.clickServicePlansTab();
+    $PageObject.selectServicePlan(0);
+    $PageObject.clickShowFullSummary();
+    $PageObject.validateServicePlanSummaryAmount(0);
+  })
 
+  it("CY_20 - User should see the summary of the selected variant on the 'Summary' section", () => {
+    $PageObject.goToVariantConfigurePage(urls.wrxAwdManualConfigurePage, wrxPageElements.sedanAwdManualConfigurePageUrl);
 
+    $PageObject.clickColourTab();
+    $PageObject.selectColour(2,variantColourOptions[2]);
 
-});
+    $PageObject.clickInteriorTab();
+    $PageObject.selectInterior(0,variantInteriorOptions[0]);
+  
+    $PageObject.clickOptionsTab();
+    $PageObject.selectAddStylingPack(0);
+
+    $PageObject.clickAccessoriesTab();
+    $PageObject.clickAccessories(configurePageElements.protectionAccordion,'Door Visor');
+    
+    $PageObject.clickServicePlansTab();
+    $PageObject.selectServicePlan(0);
+
+    $PageObject.clickShowFullSummary();
+
+    $PageObject.validateServicePlanSummaryAmount(0);
+    $PageObject.validateColourSummaryAmount();
+    $PageObject.validateInteriorSummaryAmount();
+    $PageObject.validateOptionsSummaryAmount(0);
+    $PageObject.validateSelectedAccessoriesOnSummary('Door Visor',true);
+  })
+
+})

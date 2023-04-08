@@ -129,7 +129,6 @@ export class PageObject {
   }
 
   validateColourSummaryAmount() {
-    cy.get('span').contains('Show Full Summary').scrollIntoView().click();
     cy.get('div[data-test="summary_expanded:section:subaru_colour"]').scrollIntoView();
     cy.get('div[data-test="summary_expanded:section:subaru_colour"]').find('span').contains('$0.00');
   }
@@ -150,7 +149,6 @@ export class PageObject {
   }
 
   validateInteriorSummaryAmount() {
-    cy.get('span').contains('Show Full Summary').scrollIntoView().click();
     cy.get('div[data-test="summary_expanded:section:subaru_interior"]').scrollIntoView();
     cy.get('div[data-test="summary_expanded:section:subaru_interior"]').find('span').contains('$0.00');
   }
@@ -192,7 +190,6 @@ export class PageObject {
     .find('div[data-test*="option:pack"]').eq(index)
     .find('span[data-test="option:price:primary"]')
     .invoke('text').then(($optionAmount)=>{
-      cy.get('span').contains('Show Full Summary').scrollIntoView().click();
       cy.get('div[data-test="summary_expanded:section:subaruaccessorypack"]').scrollIntoView();
       cy.get('div[data-test="summary_expanded:section:subaruaccessorypack"]').find('span').contains($optionAmount);
     })
@@ -203,7 +200,6 @@ export class PageObject {
     cy.wait(200);
     cy.get(configurePageElements.accessoriesAccordion).should('be.visible')
   }
-
 
   clickAccessories(accessoryCategory: string, accessoryName: string) {
     cy.get(accessoryCategory).find('p').contains(accessoryName).click();
@@ -227,9 +223,80 @@ export class PageObject {
       cy.get('div[data-test="summary_expanded:section:subaru_accessories"]').find('span').contains(accessoryName).should('exist');
     }else if(exists == false){
       cy.get('div[data-test="summary_expanded:section:subaru_accessories"]').find('span').contains(accessoryName).should('not.exist');
-    }
-      
+    } 
   }
+
+  clickServicePlansTab() {
+    cy.get(configurePageElements.servicePlansTabButton).click();
+    cy.wait(200);
+    cy.get(configurePageElements.servicePlansAccordion).should('be.visible')
+    cy.get(configurePageElements.servicePlanName).should('be.visible')
+  }
+
+  expandPriceGuide() {
+    cy.get(configurePageElements.priceGuideLink).click();
+    cy.get(configurePageElements.serviceName).should('be.visible');
+    cy.get(configurePageElements.servicePrice).should('be.visible');
+    cy.get(configurePageElements.servicePlanTotalPrice).should('be.visible');
+  }
+
+  collapsePriceGuide() {
+    cy.get(configurePageElements.priceGuideLink).click();
+    cy.get(configurePageElements.serviceName).should('not.be.visible');
+    cy.get(configurePageElements.servicePrice).should('not.be.visible');
+    cy.get(configurePageElements.servicePlanTotalPrice).should('not.be.visible');
+  }
+
+  selectServicePlan(index: number) {
+    cy.get(configurePageElements.servicePlanCheckbox).eq(index).click();
+  }
+
+  validateServicePlanSummaryAmount(index: number) {
+    cy.get(configurePageElements.servicePlanPrice).eq(index)
+    .invoke('text').then(($servicePlanAmount)=>{
+      cy.get(configurePageElements.servicePlanSummaryAmount).scrollIntoView();
+      cy.get(configurePageElements.servicePlanSummaryAmount).find('span').contains($servicePlanAmount).should('exist');
+    })
+  }
+
+clickFinanceOptionOnFooter(){
+  cy.get(configurePageElements.financeButton).click();
+  cy.get('div[role="dialog"]').should('be.visible');
+}
+
+setPropertyOwner(propertyOwner: boolean){
+  if(propertyOwner == true){
+    cy.get('div[role="dialog"]').find('input[type="radio"]').should('have.attrib','value','true').click();
+  }else if(propertyOwner == false){
+    cy.get('div[role="dialog"]').find('input[type="radio"]').should('have.attrib','value','false').click();
+  } 
+}
+
+setAgeBracket(ageBracketOption: number){
+  if(ageBracketOption == 1){
+    cy.get('div[role="dialog"]').find('input[type="radio"]').should('have.attrib','value','18').click();
+  }else if(ageBracketOption == 2){
+    cy.get('div[role="dialog"]').find('input[type="radio"]').should('have.attrib','value','23').click();
+  }else if(ageBracketOption == 3){
+    cy.get('div[role="dialog"]').find('input[type="radio"]').should('have.attrib','value','34').click();
+  } 
+}
+
+setLoanTerm(termsOption: number){
+  if(termsOption == 1){
+    cy.get('div[role="dialog"]').find('button[data-test="calculator:tab-Weekly"]').click();
+  }else if(termsOption == 2){
+    cy.get('div[role="dialog"]').find('button[data-test="calculator:tab-Fortnightly"]').click();
+  }else if(termsOption == 3){
+    cy.get('div[role="dialog"]').find('button[data-test="calculator:tab-Monthly"]').click();
+  } 
+}
+
+clickContinueCalculateModal(){
+  cy.get(configurePageElements.continueButtonCalculateModal).scrollIntoView();
+  cy.get(configurePageElements.continueButtonCalculateModal).click();
+  cy.get('div[role="dialog"]').should('not.be.visible');
+}
 
 
 
