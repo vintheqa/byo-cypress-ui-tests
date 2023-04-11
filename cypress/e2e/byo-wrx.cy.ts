@@ -10,7 +10,7 @@ describe("Build Your Own WRX", () => {
     cy.wait(2000)
   })
 
-  it("CY_01 - 'Build and Price' button redirects user to variant landing page", () => {
+  it.only("CY_01 - 'Build and Price' button redirects user to variant landing page", () => {
     $PageObject.goToRootPage();
     $PageObject.clickBuildYourOwnFromBuyerTools();
     $PageObject.setPostCode(4000);

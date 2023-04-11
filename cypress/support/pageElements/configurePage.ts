@@ -64,8 +64,25 @@ servicePrice: 'span[data-test="customise:featureServicePlanInterval:price"]',
 servicePlanTotalPrice: 'span[data-test="customise:featureServicePlanIntervalTotal"]',
 servicePlanPrice: 'span[data-test="customise:featureServicePlanPrice"]',
 
+cashButton: 'button[data-test="button:finance_product_tabs:cash"]',
+footerDriveawayPrice: 'div[data-test="car_prices:cash:vehicle_total_price"]',
 financeButton: 'button[data-test="button:finance_product_tabs:finance"]',
 continueButtonCalculateModal: 'button[data-test="calculator:continueButton"]',
+footerIndicativeInterestRate: 'div[data-test="finance_values:interestRate"]',
+footerComparisonRate: 'div[data-test="finance_values:comparisonRate"]',
+footerEstimatedRepayment: 'div[data-test="finance_values:price:payment_value"]',
+
+summarySection: 'span[data-test="container:section:summary"]',
+summaryDepositValue: 'div[data-test="summary:price:deposit"]',
+summarySelectedLoanType: 'p[data-test="summary:financeProduct"]',
+summarySelectedTerm: 'p[data-test="summary:termRate"]',
+summaryEstimatedRepaymentValue: 'div[data-test="summary:price:repayment_frequency"]',
+summaryComparisonRateValue: 'p[data-test="summary:price:comparisonRate"]',
+summaryDriveawayPrice: 'div[data-test="summary:price:vehicle_total_price"]',
+
+buyOnlineButton:'button[data-test="customise:summary:submit"]',
+
+
 
 
 

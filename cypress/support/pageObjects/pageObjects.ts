@@ -81,8 +81,8 @@ export class PageObject {
   }
 
   //Configure Page
-  clickViewFullSpecLinkOnVariantContainer() {
-    cy.get('span').contains('View Full Specifications & Features').click();
+  clickViewFullSpecLinkOnVariantContainer(index:number) {
+    cy.get('a[data-test="customise:viewSpecificationsFeaturesLink"]').eq(index).click();
     cy.get('div[role="dialog"]').should('be.visible');
     cy.get('div[role="dialog"]').contains('Full Specifications & Features').should('be.visible');
     cy.get('div[role="dialog"]').find('svg[data-test="button:close"]').should('be.visible');
@@ -259,26 +259,33 @@ export class PageObject {
     })
   }
 
+checkPaymentOptionsOnFooter(){
+  cy.get(configurePageElements.cashButton).should('be.visible');
+  cy.get(configurePageElements.financeButton).should('be.visible');
+}
+
 clickFinanceOptionOnFooter(){
   cy.get(configurePageElements.financeButton).click();
   cy.get('div[role="dialog"]').should('be.visible');
+  cy.get('div[data-test="common:genericAccordion:calculator"]').should('be.visible');
+  cy.wait(500);
 }
 
 setPropertyOwner(propertyOwner: boolean){
   if(propertyOwner == true){
-    cy.get('div[role="dialog"]').find('input[type="radio"]').should('have.attrib','value','true').click();
+    cy.get('label[data-test*="homeowner_yes"]').find('input[type="radio"]').should('have.attr','value','true').click();
   }else if(propertyOwner == false){
-    cy.get('div[role="dialog"]').find('input[type="radio"]').should('have.attrib','value','false').click();
+    cy.get('label[data-test*="homeowner_no"]').find('input[type="radio"]').should('have.attr','value','false').click();
   } 
 }
 
 setAgeBracket(ageBracketOption: number){
   if(ageBracketOption == 1){
-    cy.get('div[role="dialog"]').find('input[type="radio"]').should('have.attrib','value','18').click();
+    cy.get('label[data-test="calculator:radio-18-22"]').click();
   }else if(ageBracketOption == 2){
-    cy.get('div[role="dialog"]').find('input[type="radio"]').should('have.attrib','value','23').click();
+    cy.get('label[data-test="calculator:radio-23-33"]').click();
   }else if(ageBracketOption == 3){
-    cy.get('div[role="dialog"]').find('input[type="radio"]').should('have.attrib','value','34').click();
+    cy.get('label[data-test="calculator:radio-34+"]').click();
   } 
 }
 
@@ -296,7 +303,43 @@ clickContinueCalculateModal(){
   cy.get(configurePageElements.continueButtonCalculateModal).scrollIntoView();
   cy.get(configurePageElements.continueButtonCalculateModal).click();
   cy.get('div[role="dialog"]').should('not.be.visible');
+  cy.wait(500);
 }
+
+validateCalculationsFieldsOnFooter() {
+  cy.get(configurePageElements.footerIndicativeInterestRate).find('span').contains('Indicative Interest rate');
+  cy.get(configurePageElements.footerComparisonRate).find('span').contains('Comparison rate');
+  cy.get(configurePageElements.footerEstimatedRepayment).find('span').contains('Estimated repayment');
+}
+
+checkEstimatedRepaymentValueOnFooterAndSummary() {
+  cy.get(configurePageElements.footerEstimatedRepayment).find('span[data-test="text:price:total"]')
+    .invoke('text').then(($estimatedRepaymentValue)=>{
+      cy.get(configurePageElements.summaryEstimatedRepaymentValue).children('span').invoke('text').should('include',$estimatedRepaymentValue);
+  })
+}
+
+checkComparisonRateValueOnFooterAndSummary() {
+  cy.get(configurePageElements.summaryComparisonRateValue).invoke('text').then(($comparisonRateValue)=>{
+    cy.get(configurePageElements.footerComparisonRate).find('span').eq(0).invoke('text').should('include',$comparisonRateValue);
+  }) 
+}
+
+checkDriveawayPriceValueOnFooterAndSummary() {
+  cy.get(configurePageElements.footerDriveawayPrice).find('span[data-test="text:price:total"]')
+    .invoke('text').then(($driveawayPriceValue)=>{
+      cy.get(configurePageElements.summaryDriveawayPrice).children('span').invoke('text').should('eq',$driveawayPriceValue);
+      cy.get(configurePageElements.summaryDriveawayPrice).children('span').invoke('text').should('not.equal','$0');
+  })
+}
+
+goToCheckoutPage() {
+  cy.get(configurePageElements.buyOnlineButton).click();
+  cy.get('p').contains('Order Summary').should('be.visible',{timeout:120000});
+  cy.url().should('include','/build-your-own/order/details');
+
+}
+
 
 
 
