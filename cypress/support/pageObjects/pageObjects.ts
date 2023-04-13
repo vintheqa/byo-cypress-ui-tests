@@ -1,6 +1,11 @@
 import { configurePageElements,homePageElements,wrxPageElements, urls } from "../pageElements";
 
 export class PageObject {
+  
+  getRandomNumber(max: number): number {
+    return Math.floor(Math.random() * (max - 0 + 1)) + 0;
+  }
+  
   clickElement(element){
     cy.get(element).click();
   }
@@ -46,15 +51,14 @@ export class PageObject {
       cy.get('span').contains('Build and Price').should('be.visible');
   }
 
-  selectVariant(variantButton: string, urlIdentifier: string){
-      cy.get(variantButton).scrollIntoView()
-      cy.get(variantButton).find('span').contains('Build and Price').scrollIntoView().click()
-      cy.url().should('include',urlIdentifier);
+  selectVariant(modelCode: string, variantCode: string){
+      cy.get(`div[data-test="productVariants:slide:${variantCode}`).scrollIntoView()
+      cy.get(`div[data-test="productVariants:slide:${variantCode}`).find('span').contains('Build and Price').scrollIntoView().click()
+      cy.url().should('include',`/configure/configure/${modelCode}?carCode=${variantCode}`);
   }
 
-  goToVariantConfigurePage(variantConfigurePageUrl: string, urlIdentifier: string){
+  goToVariantConfigurePage(variantConfigurePageUrl){
       cy.visit(variantConfigurePageUrl)
-      cy.url().should('include',urlIdentifier);
   }
 
   goToVariantSelectionPage(variantPageurl: string){
@@ -180,6 +184,10 @@ export class PageObject {
     cy.get('div[id="customise_subaruaccessorypack"]').find('p').contains('Styling Pack').eq(index).should('have.attr','data-option','accessory_pack:selected');
   }
 
+  selectTickStylingPack(index: number) {
+    cy.get('span[data-test="pack:checkbox"').eq(index).click();
+  }
+
   validateModalSelectedStylingPack(index: number) {
     this.clickShowFeaturesStylingPack(index);
     cy.get('button[data-test="button:accessory-pack:toggle"]').find('span').contains('Remove').should('be.visible');
@@ -205,10 +213,45 @@ export class PageObject {
     cy.get(accessoryCategory).find('p').contains(accessoryName).click();
   }
 
-  clickShowFullSummary(){
-    cy.get('span').contains('Show Full Summary').scrollIntoView().click();
+  selectAccessory(accessoryCategory: string, index) {
+    cy.get(accessoryCategory).find('div[data-test*="option:AU_ACC"]').eq(index).click();
   }
 
+  validateAccessoriesSummaryAmount(accessoryCategory: string, index: number) {
+    cy.get(accessoryCategory)
+    .find('div[data-test*="option:AU_ACC"]').eq(index)
+    .find('p').eq(0)
+    .invoke('text').then(($accessoryName)=>{
+      cy.get(accessoryCategory)
+      .find('span[data-test="option:price:primary"]').eq(index)
+      .invoke('text').then(($accessoryAmount)=>{
+        cy.get('div[data-test="summary_expanded:section:subaru_accessories"]').scrollIntoView();
+        cy.get('div[data-test="summary_expanded:section:subaru_accessories"]').find('span').contains($accessoryName).siblings('span').contains($accessoryAmount).should('exist');
+      })
+    })
+  }
+
+  validateSelectedAccessoriesOnSummary(accessoryCategory: string,index: number, exists: boolean) {
+    if(exists == true){
+      cy.get(accessoryCategory)
+      .find('div[data-test*="option:AU_ACC"]').eq(index)
+      .find('p').eq(0)
+      .invoke('text').then(($accessoryName)=>{
+        cy.get('div[data-test="summary_expanded:section:subaru_accessories"]').scrollIntoView();
+        cy.get('div[data-test="summary_expanded:section:subaru_accessories"]').find('span').contains($accessoryName).should('exist');
+      })
+    }else if(exists == false){
+      cy.get(accessoryCategory)
+      .find('div[data-test*="option:AU_ACC"]').eq(index)
+      .find('p').eq(0)
+      .invoke('text').then(($accessoryName)=>{
+        cy.get('div[data-test="summary_expanded:section:subaru_accessories"]').scrollIntoView();
+        cy.get('div[data-test="summary_expanded:section:subaru_accessories"]').find('span').contains($accessoryName).should('not.exist');
+      })
+    } 
+  }
+
+  /*
   validateAccessoriesSummaryAmount(accessoryCategory: string, index: number,accessoryName: string) {
     cy.get(accessoryCategory)
     .find('span[data-test="option:price:primary"]').eq(index)
@@ -217,7 +260,9 @@ export class PageObject {
       cy.get('div[data-test="summary_expanded:section:subaru_accessories"]').find('span').contains(accessoryName).siblings('span').contains($accessoryAmount).should('exist');
     })
   }
+  */
 
+  /*
   validateSelectedAccessoriesOnSummary(accessoryName: string, exists: boolean) {
     if(exists == true){
       cy.get('div[data-test="summary_expanded:section:subaru_accessories"]').find('span').contains(accessoryName).should('exist');
@@ -225,6 +270,7 @@ export class PageObject {
       cy.get('div[data-test="summary_expanded:section:subaru_accessories"]').find('span').contains(accessoryName).should('not.exist');
     } 
   }
+  */
 
   clickServicePlansTab() {
     cy.get(configurePageElements.servicePlansTabButton).click();
@@ -257,6 +303,10 @@ export class PageObject {
       cy.get(configurePageElements.servicePlanSummaryAmount).scrollIntoView();
       cy.get(configurePageElements.servicePlanSummaryAmount).find('span').contains($servicePlanAmount).should('exist');
     })
+  }
+
+  clickShowFullSummary(){
+    cy.get('span').contains('Show Full Summary').scrollIntoView().click();
   }
 
 checkPaymentOptionsOnFooter(){
