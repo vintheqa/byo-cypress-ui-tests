@@ -6,7 +6,7 @@ export default defineConfig({
   viewportWidth: 1920,
   viewportHeight: 1080,
   chromeWebSecurity: false,
-  numTestsKeptInMemory: 20,
+  numTestsKeptInMemory: 0,
   env: {
     baseURL: "https://www.subaru.com.au/",
   },

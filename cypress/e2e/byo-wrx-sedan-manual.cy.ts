@@ -9,12 +9,12 @@ const variantInteriorOptions = wrxPageElements.wrxSedanInteriorOptions
 const modelCode = 'AUWRX'
 const variantCode = 'AUVBHCKE6'
 
-let protectionIndex = $PageObject.getRandomNumber(4);
-let performanceIndex = $PageObject.getRandomNumber(13);
-let stylingIndex = $PageObject.getRandomNumber(14);
-let cargoIndex = $PageObject.getRandomNumber(2);
-let colorIndex = $PageObject.getRandomNumber(variantColourCount);
-let optionsIndex = $PageObject.getRandomNumber(4);
+let protectionIndex = $PageObject.getRandomNumber(3);
+let performanceIndex = $PageObject.getRandomNumber(12);
+let stylingIndex = $PageObject.getRandomNumber(13);
+let cargoIndex = $PageObject.getRandomNumber(1);
+let colorIndex = $PageObject.getRandomNumber(variantColourCount-1);
+let optionsIndex = $PageObject.getRandomNumber(3);
 
 describe("Build Your Own WRX - AWD Manual", () => {
 
@@ -113,7 +113,7 @@ describe("Build Your Own WRX - AWD Manual", () => {
     $PageObject.validateOptionsSummaryAmount(optionsIndex);
   });
 
-  it.only("CY_16 - User should be able to select any accessories on any section under 'Accessories'", () => {
+  it("CY_16 - User should be able to select any accessories on any section under 'Accessories'", () => {
     $PageObject.goToVariantConfigurePage(urls.wrxAwdManualConfigurePage);
     $PageObject.clickAccessoriesTab();
     $PageObject.selectAccessory(configurePageElements.protectionAccordion,protectionIndex);
@@ -128,22 +128,6 @@ describe("Build Your Own WRX - AWD Manual", () => {
     $PageObject.validateAccessoriesSummaryAmount(configurePageElements.performancePartsAccordion,performanceIndex);
     $PageObject.validateAccessoriesSummaryAmount(configurePageElements.stylingAccordion,stylingIndex);
     $PageObject.validateAccessoriesSummaryAmount(configurePageElements.cargoAccordion,cargoIndex);
-
-
-/*
-    $PageObject.clickAccessories(configurePageElements.protectionAccordion,'Door Visor');
-    $PageObject.clickElement(configurePageElements.performancePartsAccordion);
-    $PageObject.clickAccessories(configurePageElements.performancePartsAccordion,'STI Side Under Spoiler (Red)');
-    $PageObject.clickElement(configurePageElements.stylingAccordion);
-    $PageObject.clickAccessories(configurePageElements.stylingAccordion,'Trunk Spoiler');
-    $PageObject.clickElement(configurePageElements.cargoAccordion);
-    $PageObject.clickAccessories(configurePageElements.cargoAccordion,'Trunk Tray');
-    $PageObject.clickShowFullSummary();
-    $PageObject.validateAccessoriesSummaryAmount(configurePageElements.protectionAccordion,0,'Door Visor');
-    $PageObject.validateAccessoriesSummaryAmount(configurePageElements.performancePartsAccordion,0,'STI Side Under Spoiler (Red)');
-    $PageObject.validateAccessoriesSummaryAmount(configurePageElements.stylingAccordion,0,'Trunk Spoiler');
-    $PageObject.validateAccessoriesSummaryAmount(configurePageElements.cargoAccordion,0,'Trunk Tray');
-    */
   });
 
   it("CY_17 - User should be able to deselect any accessories selected on any section under 'Accessories'", () => {
@@ -170,29 +154,6 @@ describe("Build Your Own WRX - AWD Manual", () => {
     $PageObject.validateSelectedAccessoriesOnSummary(configurePageElements.performancePartsAccordion,performanceIndex,false);
     $PageObject.validateSelectedAccessoriesOnSummary(configurePageElements.stylingAccordion,stylingIndex,true);
     $PageObject.validateSelectedAccessoriesOnSummary(configurePageElements.cargoAccordion,cargoIndex,true);
-
-    /*
-    $PageObject.goToVariantConfigurePage(urls.wrxAwdManualConfigurePage);
-    $PageObject.clickAccessoriesTab();
-    $PageObject.clickAccessories(configurePageElements.protectionAccordion,'Door Visor');
-    $PageObject.clickElement(configurePageElements.performancePartsAccordion);
-    $PageObject.clickAccessories(configurePageElements.performancePartsAccordion,'STI Side Under Spoiler (Red)');
-    $PageObject.clickElement(configurePageElements.stylingAccordion);
-    $PageObject.clickAccessories(configurePageElements.stylingAccordion,'Trunk Spoiler');
-    $PageObject.clickElement(configurePageElements.cargoAccordion);
-    $PageObject.clickAccessories(configurePageElements.cargoAccordion,'Trunk Tray');
-    $PageObject.clickShowFullSummary();
-    $PageObject.validateSelectedAccessoriesOnSummary('Door Visor',true);
-    $PageObject.validateSelectedAccessoriesOnSummary('STI Side Under Spoiler (Red)',true);
-    $PageObject.validateSelectedAccessoriesOnSummary('Trunk Spoiler',true);
-    $PageObject.validateSelectedAccessoriesOnSummary('Trunk Tray',true);
-    $PageObject.clickAccessories(configurePageElements.protectionAccordion,'Door Visor');
-    $PageObject.clickAccessories(configurePageElements.performancePartsAccordion,'STI Side Under Spoiler (Red)');
-    $PageObject.validateSelectedAccessoriesOnSummary('Door Visor',false);
-    $PageObject.validateSelectedAccessoriesOnSummary('STI Side Under Spoiler (Red)',false);
-    $PageObject.validateSelectedAccessoriesOnSummary('Trunk Spoiler',true);
-    $PageObject.validateSelectedAccessoriesOnSummary('Trunk Tray',true);
-    */
   });
 
   it("CY_18 - Ability to see the price breakdown included on the service plan", () => {
@@ -233,7 +194,7 @@ describe("Build Your Own WRX - AWD Manual", () => {
     $PageObject.validateServicePlanSummaryAmount(0);
     $PageObject.validateColourSummaryAmount();
     $PageObject.validateInteriorSummaryAmount();
-    $PageObject.validateOptionsSummaryAmount(0);
+    $PageObject.validateOptionsSummaryAmount(optionsIndex);
     $PageObject.validateSelectedAccessoriesOnSummary(configurePageElements.protectionAccordion,protectionIndex,true);
   })
 

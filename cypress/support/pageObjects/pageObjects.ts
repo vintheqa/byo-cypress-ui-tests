@@ -135,6 +135,10 @@ export class PageObject {
   validateColourSummaryAmount() {
     cy.get('div[data-test="summary_expanded:section:subaru_colour"]').scrollIntoView();
     cy.get('div[data-test="summary_expanded:section:subaru_colour"]').find('span').contains('$0.00');
+    cy.get('span[data-test*="summary:selected:featureTitle"]').eq(0).invoke('text').then((selectedColour)=>{
+      cy.get('div[data-test="summary_expanded:section:subaru_colour"]').find('span').contains(selectedColour);
+    })
+    
   }
   
   clickInteriorTab() {
@@ -168,7 +172,7 @@ export class PageObject {
   }
 
   clickShowFeaturesStylingPack(index: number) {
-    cy.get('div[id="customise_subaruaccessorypack"]').find('span').contains('Show features').eq(index).click();
+    cy.get('div[id="customise_subaruaccessorypack"]').find('div[data-test*="option:pack"]').eq(index).find('span').contains('Show features').click();
     cy.get('div[role="dialog"]').find('div[data-test="text:accessory-pack:title"]').should('be.visible');
   }
 
@@ -181,7 +185,7 @@ export class PageObject {
     this.clickShowFeaturesStylingPack(index);
     cy.get('button[data-test="button:accessory-pack:toggle"]').find('span').contains('Add').click();
     this.closeStylingPackModal();
-    cy.get('div[id="customise_subaruaccessorypack"]').find('p').contains('Styling Pack').eq(index).should('have.attr','data-option','accessory_pack:selected');
+    cy.get('div[id="customise_subaruaccessorypack"]').find('div[data-test*="option:pack"]').eq(index).find('p').contains('Styling Pack').should('have.attr','data-option','accessory_pack:selected');
   }
 
   selectTickStylingPack(index: number) {
