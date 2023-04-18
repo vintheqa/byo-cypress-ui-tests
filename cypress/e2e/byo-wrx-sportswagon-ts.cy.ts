@@ -24,18 +24,19 @@ describe("Build Your Own WRX - AWD Sportswagon TS", () => {
     $PageObject.clickBuildYourOwnFromBuyerTools();
     $PageObject.setPostCode(4000);
     $PageObject.selectVehicleModel(wrxPageElements.modelButton,wrxPageElements.modelUrl,0);
+    $PageObject.selectVariantType('Sportswagon');
     $PageObject.selectVariant(modelCode,variantCode);
   });
 
   it("CY_05 - 'View Full Specifications & Features' hyperlink should open a modal window displaying the variant's Specs & Features", () => {
     $PageObject.goToVariantConfigurePage(urls.wrxAwdSportsWagonTsConfigurePage);
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(5);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(1);
     $PageObject.validateFullSpecModalSectionAndSubSectionHeaders();
   });
 
   it("CY_06 - 'View Full Specifications & Features' modal window should have close button", () => {
     $PageObject.goToVariantConfigurePage(urls.wrxAwdSportsWagonTsConfigurePage);
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(5);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(1);
     $PageObject.closeViewFullSpecModal();  
   });
 

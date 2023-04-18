@@ -84,6 +84,13 @@ export class PageObject {
     });
   }
 
+  selectVariantType(variantType: string){
+    cy.get('span').contains(variantType).click();
+    cy.wait(1000);
+  }
+
+  
+
   //Configure Page
   clickViewFullSpecLinkOnVariantContainer(index:number) {
     cy.get('a[data-test="customise:viewSpecificationsFeaturesLink"]').eq(index).click();

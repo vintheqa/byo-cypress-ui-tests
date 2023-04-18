@@ -17,25 +17,26 @@ let colorIndex = $PageObject.getRandomNumber(variantColourCount-1);
 let optionsIndex = $PageObject.getRandomNumber(3);
 
 
-describe("Build Your Own WRX - AWD Ts Sport Lineratronic", () => {
+describe("Build Your Own WRX - AWD Sportswagon", () => {
 
   it("CY_04 - Clicking of 'Build and Price' on any variant  on the variant landing page will redirect user to configurator page", () => {
     $PageObject.goToRootPage();
     $PageObject.clickBuildYourOwnFromBuyerTools();
     $PageObject.setPostCode(4000);
     $PageObject.selectVehicleModel(wrxPageElements.modelButton,wrxPageElements.modelUrl,0);
+    $PageObject.selectVariantType('Sportswagon');
     $PageObject.selectVariant(modelCode,variantCode);
   });
 
   it("CY_05 - 'View Full Specifications & Features' hyperlink should open a modal window displaying the variant's Specs & Features", () => {
     $PageObject.goToVariantConfigurePage(urls.wrxAwdSportswagonConfigurePage);
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(5);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(0);
     $PageObject.validateFullSpecModalSectionAndSubSectionHeaders();
   });
 
   it("CY_06 - 'View Full Specifications & Features' modal window should have close button", () => {
     $PageObject.goToVariantConfigurePage(urls.wrxAwdSportswagonConfigurePage);
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(5);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(0);
     $PageObject.closeViewFullSpecModal();  
   });
 
