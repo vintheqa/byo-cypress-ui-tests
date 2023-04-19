@@ -54,7 +54,7 @@ export const wrxPageElements = {
   ],
 
   wrxSportswagonColorOptions: [
-    "Ceramic White",
+    "Crystal White Pearl",
     "Ice Silver Metallic",
     "Ignition Red",
     "WR Blue Pearl",
@@ -63,13 +63,19 @@ export const wrxPageElements = {
     "Crystal Black Silica",
   ],
 
-  wrxSedanInteriorOptions: [
-    "Black cloth",
+  wrxSportswagonInteriorOptions: [
+    "Black cloth"
+  ],
+
+  wrxSportswagonGtInteriorOptions: [
     "Black leather accented",
+  ],
+
+  wrxSportswagonTsInteriorOptions: [
     "Black Ultrasuede®"
   ],
 
-  wrxSportswagonInteriorOptions: [
+  wrxSedanInteriorOptions: [
     "Black and grey cloth",
   ],
 

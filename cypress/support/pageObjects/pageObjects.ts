@@ -132,6 +132,7 @@ export class PageObject {
 
   selectColour(buttonIndex: number, colourName: string) {
     cy.get('div[id="customise_subaru_colour"]').find('div[data-test*="option:type:color"]').eq(buttonIndex).click();
+    cy.wait(500);
     cy.get('span[data-test*="summary:selected:featureTitle"]').eq(0).invoke('text').should('eq',colourName)
   }
 
