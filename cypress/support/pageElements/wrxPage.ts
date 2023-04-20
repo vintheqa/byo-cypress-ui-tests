@@ -63,19 +63,23 @@ export const wrxPageElements = {
     "Crystal Black Silica",
   ],
 
-  wrxSportswagonInteriorOptions: [
-    "Black cloth"
+  wrxInteriorOptions: [
+    "Black and grey cloth",
+    "Black and grey Ultrasuede®",
+    "Black cloth",
+    "Black leather accented",
+    "Black Ultrasuede®",
   ],
 
-  wrxSportswagonGtInteriorOptions: [
+  wrxInteriorBlackLeather: [
     "Black leather accented",
   ],
 
-  wrxSportswagonTsInteriorOptions: [
+  wrxInteriorBlackUltrasuede: [
     "Black Ultrasuede®"
   ],
 
-  wrxSedanInteriorOptions: [
+  wrxInteriorBlackGreyCloth: [
     "Black and grey cloth",
   ],
 

@@ -364,6 +364,7 @@ setLoanTerm(termsOption: number){
 clickContinueCalculateModal(){
   cy.get(configurePageElements.continueButtonCalculateModal).scrollIntoView();
   cy.get(configurePageElements.continueButtonCalculateModal).click();
+  cy.wait(1000);
   cy.get('div[role="dialog"]').should('not.be.visible');
   cy.wait(500);
 }
