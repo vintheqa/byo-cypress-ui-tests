@@ -1,7 +1,9 @@
 export const wrxPageElements = {
     //model button on model selection
     modelButton: 'a[href="/configure/trim-levels/AUWRX"]',
+    modelUrl: 'configure/trim-levels/AUWRX',
 
+    /*
     //Variant Slides
     wrxSedanAwdManual: 'div[data-test="productVariants:slide:AUVBHCKE6"]',
     wrxSedanAwdSport: 'div[data-test="productVariants:slide:AUVBHCKJ8"]',
@@ -13,7 +15,7 @@ export const wrxPageElements = {
     wrxSportswagonAwdTs: 'div[data-test="productVariants:slide:AUVNHCKB8"]',
   
     
-    modelUrl: 'configure/trim-levels/AUWRX',
+
 
     //url identifiers
     sedanAwdManualConfigurePageUrl: '/configure/configure/AUWRX?carCode=AUVBHCKE6',
@@ -24,7 +26,7 @@ export const wrxPageElements = {
     sportswagonAwdConfigurePageUrl: '/configure/configure/AUWRX?carCode=AUVNHCKA8',
     sportswagonAwdGtConfigurePageUrl: '/configure/configure/AUWRX?carCode=AUVNHCKA8_G',
     sportswagonAwdTsConfigurePageUrl: '/configure/configure/AUWRX?carCode=AUVNHCKB8',
-  
+  */
   
 
   

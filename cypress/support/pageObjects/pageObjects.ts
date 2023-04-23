@@ -52,8 +52,8 @@ export class PageObject {
   }
 
   selectVariant(modelCode: string, variantCode: string){
-      cy.get(`div[data-test="productVariants:slide:${variantCode}`).scrollIntoView()
-      cy.get(`div[data-test="productVariants:slide:${variantCode}`).find('span').contains('Build and Price').scrollIntoView().click()
+      cy.get(`div[data-test="productVariants:slide:${variantCode}"]`).scrollIntoView()
+      cy.get(`div[data-test="productVariants:slide:${variantCode}"]`).find('span').contains('Build and Price').scrollIntoView().click()
       cy.url().should('include',`/configure/configure/${modelCode}?carCode=${variantCode}`);
   }
 
@@ -263,27 +263,6 @@ export class PageObject {
     } 
   }
 
-  /*
-  validateAccessoriesSummaryAmount(accessoryCategory: string, index: number,accessoryName: string) {
-    cy.get(accessoryCategory)
-    .find('span[data-test="option:price:primary"]').eq(index)
-    .invoke('text').then(($accessoryAmount)=>{
-      cy.get('div[data-test="summary_expanded:section:subaru_accessories"]').scrollIntoView();
-      cy.get('div[data-test="summary_expanded:section:subaru_accessories"]').find('span').contains(accessoryName).siblings('span').contains($accessoryAmount).should('exist');
-    })
-  }
-  */
-
-  /*
-  validateSelectedAccessoriesOnSummary(accessoryName: string, exists: boolean) {
-    if(exists == true){
-      cy.get('div[data-test="summary_expanded:section:subaru_accessories"]').find('span').contains(accessoryName).should('exist');
-    }else if(exists == false){
-      cy.get('div[data-test="summary_expanded:section:subaru_accessories"]').find('span').contains(accessoryName).should('not.exist');
-    } 
-  }
-  */
-
   clickServicePlansTab() {
     cy.get(configurePageElements.servicePlansTabButton).click();
     cy.wait(200);
@@ -327,8 +306,9 @@ checkPaymentOptionsOnFooter(){
 }
 
 clickFinanceOptionOnFooter(){
-  cy.get(configurePageElements.financeButton).click();
-  cy.get('div[role="dialog"]').should('be.visible');
+  cy.get(configurePageElements.financeButton).click({waitForAnimations: false});
+  cy.wait(2000);
+  cy.get('div[role="dialog"]').should('be.visible',{timeout:10000});
   cy.get('div[data-test="common:genericAccordion:calculator"]').should('be.visible');
   cy.wait(500);
 }
@@ -365,7 +345,7 @@ clickContinueCalculateModal(){
   cy.get(configurePageElements.continueButtonCalculateModal).scrollIntoView();
   cy.get(configurePageElements.continueButtonCalculateModal).click();
   cy.wait(1000);
-  cy.get('div[role="dialog"]').should('not.be.visible');
+  cy.get('div[role="dialog"]').should('not.exist',{timeout:3000});
   cy.wait(500);
 }
 

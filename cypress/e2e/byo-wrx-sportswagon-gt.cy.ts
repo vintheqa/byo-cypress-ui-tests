@@ -10,13 +10,12 @@ const variantInteriorOptions = wrxPageElements.wrxInteriorOptions[3]
 const modelCode = 'AUWRX'
 const variantCode = 'AUVNHCKA8_G'
 
-let protectionIndex = $PageObject.getRandomNumber(3);
-let performanceIndex = $PageObject.getRandomNumber(7);
-let stylingIndex = $PageObject.getRandomNumber(12);
-let cargoIndex = $PageObject.getRandomNumber(5);
+let protectionIndex = $PageObject.getRandomNumber(4-1);
+let performanceIndex = $PageObject.getRandomNumber(8-1);
+let stylingIndex = $PageObject.getRandomNumber(13-1);
+let cargoIndex = $PageObject.getRandomNumber(6-1);
 let colorIndex = $PageObject.getRandomNumber(variantColourCount-1);
 let optionsIndex = $PageObject.getRandomNumber(variantStylingPackCount-1);
-
 
 describe("Build Your Own WRX - AWD Sportswagon GT", () => {
 

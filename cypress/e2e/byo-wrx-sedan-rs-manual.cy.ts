@@ -5,16 +5,17 @@ const $PageObject = new PageObject();
 const variantColourCount: number = wrxPageElements.wrxSedanColorOptions.length
 const variantColourOptions = wrxPageElements.wrxSedanColorOptions
 const variantInteriorCount: number = 1
+const variantStylingPackCount: number = 4
 const variantInteriorOptions = wrxPageElements.wrxInteriorOptions[1]
 const modelCode = 'AUWRX'
 const variantCode = 'AUVBHCKH6'
 
-let protectionIndex = $PageObject.getRandomNumber(3);
-let performanceIndex = $PageObject.getRandomNumber(12);
-let stylingIndex = $PageObject.getRandomNumber(13);
-let cargoIndex = $PageObject.getRandomNumber(1);
+let protectionIndex = $PageObject.getRandomNumber(4-1);
+let performanceIndex = $PageObject.getRandomNumber(13-1);
+let stylingIndex = $PageObject.getRandomNumber(14-1);
+let cargoIndex = $PageObject.getRandomNumber(2-1);
 let colorIndex = $PageObject.getRandomNumber(variantColourCount-1);
-let optionsIndex = $PageObject.getRandomNumber(3);
+let optionsIndex = $PageObject.getRandomNumber(variantStylingPackCount-1);
 
 
 describe("Build Your Own WRX - AWD RS Manual", () => {
@@ -95,7 +96,7 @@ describe("Build Your Own WRX - AWD RS Manual", () => {
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode)
     $PageObject.clickOptionsTab();
-    $PageObject.validateNumOfStylingPackOptions(4);
+    $PageObject.validateNumOfStylingPackOptions(variantStylingPackCount);
     $PageObject.clickShowFeaturesStylingPack(optionsIndex);
   });
 
