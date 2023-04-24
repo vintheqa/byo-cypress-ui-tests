@@ -24,11 +24,20 @@ export const imprezaPageElements = {
     "Crystal Black Silica",
   ],
 
-  imprezaHatchColorOptions: [
+  imprezaHatchSColorOptions: [
     "Ceramic White",
     "Magnetite Grey Metallic",
     "Crystal Black Silica",
     "Pure Red",
+  ],
+
+  imprezaHatchColorOptions: [
+    "Ceramic White",
+    "Ice Silver Metallic",
+    "Pure Red",
+    "Sapphire Blue Pearl",
+    "Magnetite Grey Metallic",
+    "Crystal Black Silica",
   ],
 
   imprezaInteriorOptions: {
@@ -53,24 +62,79 @@ export const imprezaPageElements = {
     "SedanS": [
       'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGK7FKBL/?ex=1X&in=201&view=front',
       'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGK7FKBL/?ex=1U&in=201&view=front',
-      '',
-      '',
-      '',
-      ''
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGK7FKBL/?ex=7Y&in=201&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGK7FKBL/?ex=CH&in=201&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGK7FKBL/?ex=8Y&in=201&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGK7FKBL/?ex=4S&in=201&view=front'
     ],
-    "L-Sedan" : [
-      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGK7FKBL/?ex=1X&in=201&view=front',
-      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGK7FKBL/?ex=1U&in=201&view=front',
-      '',
-      '',
-      '',
-      ''
+    "SedanL" : [
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGK7FKAL/?ex=1X&in=206&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGK7FKAL/?ex=1U&in=206&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGK7FKAL/?ex=7Y&in=206&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGK7FKAL/?ex=CH&in=206&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGK7FKAL/?ex=8Y&in=206&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGK7FKAL/?ex=4S&in=206&view=front'
     ],
-    "SpecEditionHatch" : ['Black Leather'],
-    "S-Hatch" : ['Ivory Leather','Black Leather'],
-    "PremiumHatch" : ['Premium Ivory Cloth','Premium Black Cloth'],
-    "L-Hatch" : ['Premium Black Cloth','Premium Ivory Cloth'],
+    "HatchSpecEdition" : [
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKBLS/?ex=1X&in=201&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKBLS/?ex=8Y&in=201&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKBLS/?ex=4S&in=201&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKBLS/?ex=7Y&in=201&view=front'
+    ],
+    "HatchS" : [
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKBL/?ex=1X&in=901&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKBL/?ex=1U&in=901&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKBL/?ex=7Y&in=901&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKBL/?ex=CH&in=901&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKBL/?ex=8Y&in=901&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKBL/?ex=4S&in=901&view=front',
+    ],
+    "HatchPremium" :  [
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKALP/?ex=1X&in=206&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKALP/?ex=1U&in=206&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKALP/?ex=7Y&in=206&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKALP/?ex=CH&in=206&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKALP/?ex=8Y&in=206&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKALP/?ex=4S&in=206&view=front'
+    ],
+    "HatchL" :  [
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKAL/?ex=1X&in=206&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKAL/?ex=1U&in=206&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKAL/?ex=7Y&in=206&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKAL/?ex=CH&in=206&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKAL/?ex=8Y&in=206&view=front',
+      'https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUGT7FKAL/?ex=4S&in=206&view=front'
+    ],
   },
 
+  specsAndFeatureModalSubSections: [
+    'Measurement',
+    'Steering',
+    'Transmission',
+    'Suspension',
+    'Symmetrical All-Wheel Drive',
+    'Performance',
+    'Brakes',
+    'Towing',
+    'Engine',
+    'Wheels and Tyres',
+    'Interior Trims',
+    'Seating Extras',
+    'Entertainment',
+    'Collision Protection',
+    'Collision Avoidance',
+    'Security',
+    'Instrumentation and Controls',
+    'Exterior',
+    'Air-conditioning',
+    'Convenience',
+    'Intelligent Driving Dynamics',
+    'Storage',
+    'Lighting Exterior',
+    'Multi-Function Displays',
+    'Chassis and Mechanism',
+    'Child Safety',
+    'Safety Rating',
+  ],
 
 };

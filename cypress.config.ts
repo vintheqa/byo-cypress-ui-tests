@@ -15,7 +15,7 @@ export default defineConfig({
       // implement node event listeners here 
     },
     supportFile: "cypress/support/e2e.{js,jsx,ts,tsx}",
-    specPattern: "cypress/e2e/*.cy.ts",
+    specPattern: "cypress/e2e/**/*.cy.ts",
     pageLoadTimeout: 120000,
     defaultCommandTimeout: 10000,
   },

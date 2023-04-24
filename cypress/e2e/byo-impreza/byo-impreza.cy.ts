@@ -1,9 +1,9 @@
 import {PageObject} from "../../support/pageObjects"
-import {wrxPageElements, urls} from "../../support/pageElements";
+import {imprezaPageElements, urls} from "../../support/pageElements";
 
 const $PageObject = new PageObject();
 
-describe("Build Your Own WRX", () => {
+describe("Build Your Own Impreza", () => {
 
   before(()=>{
     $PageObject.goToRootPage();
@@ -15,25 +15,25 @@ describe("Build Your Own WRX", () => {
     $PageObject.clickBuildYourOwnFromBuyerTools();
     $PageObject.setPostCode(4000);
     $PageObject.validateModelLandingPage();
-    $PageObject.selectVehicleModel(wrxPageElements.modelButton,wrxPageElements.modelUrl,0);
+    $PageObject.selectVehicleModel(imprezaPageElements.modelButton,imprezaPageElements.modelUrl,0);
   });
 
   it("CY_02 - Each variants are separated according to body type or fuel type (Sedan/Hatch or Petrol/Hybrid)", () => {
-    const sedanVariantCount = wrxPageElements.wrxSedanVariants.length
-    const sportsWagonVariantCount = wrxPageElements.wrxSportswagonVariants.length
+    const sedanVariantCount = imprezaPageElements.imprezaSedanVariants.length
+    const sportsWagonVariantCount = imprezaPageElements.imprezaHatchVariants.length
     
-    $PageObject.goToVariantSelectionPage(urls.wrxVariantSelectionPage);
+    $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.validateVariantTypesAndVariantCount('Sedan',sedanVariantCount);
     $PageObject.validateVariantTypesAndVariantCount('Sportswagon',sportsWagonVariantCount);
   });
 
   it("CY_03 - Each variant displays the name correctly", () => {
-    const sedanVariants = wrxPageElements.wrxSedanVariants
-    const sportsWagonVariants = wrxPageElements.wrxSportswagonVariants
+    const sedanVariants = imprezaPageElements.imprezaSedanVariants
+    const hatchVariants = imprezaPageElements.imprezaHatchVariants
 
-    $PageObject.goToVariantSelectionPage(urls.wrxVariantSelectionPage);
+    $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.validateVariantName('Sedan',sedanVariants);
-    $PageObject.validateVariantName('Sportswagon',sportsWagonVariants);
+    $PageObject.validateVariantName('Hatch',hatchVariants);
   });
 
 });

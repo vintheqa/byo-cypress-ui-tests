@@ -34,7 +34,7 @@ describe("Build Your Own WRX - AWD Sportswagon TS", () => {
     $PageObject.selectVariantType('Sportswagon');
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickViewFullSpecLinkOnVariantContainer(2);
-    $PageObject.validateFullSpecModalSectionAndSubSectionHeaders();
+    $PageObject.validateFullSpecModalSectionAndSubSectionHeaders(wrxPageElements.specsAndFeatureModalSubSections);
   });
 
   it("CY_06 - 'View Full Specifications & Features' modal window should have close button", () => {

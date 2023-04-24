@@ -33,7 +33,7 @@ describe("Build Your Own WRX - AWD Ts Sport Lineratronic", () => {
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode)
     $PageObject.clickViewFullSpecLinkOnVariantContainer(4);
-    $PageObject.validateFullSpecModalSectionAndSubSectionHeaders();
+    $PageObject.validateFullSpecModalSectionAndSubSectionHeaders(wrxPageElements.specsAndFeatureModalSubSections);
   });
 
   it("CY_06 - 'View Full Specifications & Features' modal window should have close button", () => {

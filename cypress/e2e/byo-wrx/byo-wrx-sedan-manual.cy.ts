@@ -32,7 +32,7 @@ describe("Build Your Own WRX - AWD Manual", () => {
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickViewFullSpecLinkOnVariantContainer(0);
-    $PageObject.validateFullSpecModalSectionAndSubSectionHeaders();
+    $PageObject.validateFullSpecModalSectionAndSubSectionHeaders(wrxPageElements.specsAndFeatureModalSubSections);
   });
 
   it("CY_06 - 'View Full Specifications & Features' modal window should have close button", () => {

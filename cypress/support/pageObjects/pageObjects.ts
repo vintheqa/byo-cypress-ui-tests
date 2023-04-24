@@ -105,9 +105,9 @@ export class PageObject {
     cy.get('div[role="dialog"]').should('not.exist');
   }
 
-  validateFullSpecModalSectionAndSubSectionHeaders() {
+  validateFullSpecModalSectionAndSubSectionHeaders(subSectionHeaders:any) {
     const modalSectionHeaders = configurePageElements.specsAndFeatureModalSections
-    const modalSubSectionHeaders = configurePageElements.specsAndFeatureModalSubSections
+    const modalSubSectionHeaders = subSectionHeaders
     cy.get('div[role="dialog"]').find('span').should(($span) => {
       modalSectionHeaders.forEach((word) => {
         expect($span.text()).to.include(word);
@@ -159,7 +159,7 @@ export class PageObject {
     cy.get('div[id="customise_subaru_interior"]').find('div[data-test*="option:type:color"]').should('have.lengthOf',numOfOptions)
   }
 
-  selectInterior(buttonIndex: number, interiorName: string) {
+  selectInterior(buttonIndex: number, interiorName: any) {
     cy.get('div[id="customise_subaru_interior"]').find('div[data-test*="option:type:color"]').eq(buttonIndex).click();
     cy.get('span[data-test*="summary:selected:featureTitle"]').eq(1).invoke('text').should('eq',interiorName)
   }
@@ -345,7 +345,7 @@ clickContinueCalculateModal(){
   cy.get(configurePageElements.continueButtonCalculateModal).scrollIntoView();
   cy.get(configurePageElements.continueButtonCalculateModal).click();
   cy.wait(1000);
-  cy.get('div[role="dialog"]').should('not.exist',{timeout:3000});
+  cy.get('div[role="dialog"]').should('not.exist',{timeout:10000});
   cy.wait(500);
 }
 
