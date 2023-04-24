@@ -1,5 +1,5 @@
-import {PageObject} from "../support/pageObjects"
-import {wrxPageElements, urls} from "../support/pageElements";
+import {PageObject} from "../../support/pageObjects"
+import {wrxPageElements, urls} from "../../support/pageElements";
 
 const $PageObject = new PageObject();
 

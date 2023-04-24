@@ -1,14 +1,14 @@
-import {PageObject} from "../support/pageObjects"
-import { configurePageElements, wrxPageElements, urls} from "../support/pageElements";
+import {PageObject} from "../../support/pageObjects"
+import { configurePageElements, wrxPageElements, urls} from "../../support/pageElements";
 
 const $PageObject = new PageObject();
 const variantColourCount: number = wrxPageElements.wrxSportswagonColorOptions.length
 const variantColourOptions = wrxPageElements.wrxSportswagonColorOptions
 const variantInteriorCount: number = 1
 const variantStylingPackCount: number = 1
-const variantInteriorOptions = wrxPageElements.wrxInteriorOptions[3]
+const variantInteriorOptions = wrxPageElements.wrxInteriorOptions[4]
 const modelCode = 'AUWRX'
-const variantCode = 'AUVNHCKA8_G'
+const variantCode = 'AUVNHCKB8'
 
 let protectionIndex = $PageObject.getRandomNumber(4-1);
 let performanceIndex = $PageObject.getRandomNumber(8-1);
@@ -17,7 +17,8 @@ let cargoIndex = $PageObject.getRandomNumber(6-1);
 let colorIndex = $PageObject.getRandomNumber(variantColourCount-1);
 let optionsIndex = $PageObject.getRandomNumber(variantStylingPackCount-1);
 
-describe("Build Your Own WRX - AWD Sportswagon GT", () => {
+
+describe("Build Your Own WRX - AWD Sportswagon TS", () => {
 
   it("CY_04 - Clicking of 'Build and Price' on any variant  on the variant landing page will redirect user to configurator page", () => {
     $PageObject.goToRootPage();
@@ -32,7 +33,7 @@ describe("Build Your Own WRX - AWD Sportswagon GT", () => {
     $PageObject.goToVariantSelectionPage(urls.wrxVariantSelectionPage);
     $PageObject.selectVariantType('Sportswagon');
     $PageObject.selectVariant(modelCode,variantCode);
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(1);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(2);
     $PageObject.validateFullSpecModalSectionAndSubSectionHeaders();
   });
 
@@ -40,7 +41,7 @@ describe("Build Your Own WRX - AWD Sportswagon GT", () => {
     $PageObject.goToVariantSelectionPage(urls.wrxVariantSelectionPage);
     $PageObject.selectVariantType('Sportswagon');
     $PageObject.selectVariant(modelCode,variantCode);
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(1);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(2);
     $PageObject.closeViewFullSpecModal();  
   });
 
@@ -65,7 +66,7 @@ describe("Build Your Own WRX - AWD Sportswagon GT", () => {
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickColourTab();
     $PageObject.selectColour(colorIndex,variantColourOptions[colorIndex]);
-    $PageObject.validateCarImgSrc(wrxPageElements.imgSrcWrxSportswagonAwdGt[colorIndex]);
+    $PageObject.validateCarImgSrc(wrxPageElements.imgSrcWrxSportswagonAwdTs[colorIndex]);
     $PageObject.clickShowFullSummary();
     $PageObject.validateColourSummaryAmount();
   });
@@ -85,7 +86,7 @@ describe("Build Your Own WRX - AWD Sportswagon GT", () => {
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickInteriorTab();
     $PageObject.selectInterior(0,variantInteriorOptions);
-    $PageObject.validateCarImgSrc(wrxPageElements.imgSrcWrxSportswagonAwdGt[0]);
+    $PageObject.validateCarImgSrc(wrxPageElements.imgSrcWrxSportswagonAwdTs[0]);
     $PageObject.clickShowFullSummary();
     $PageObject.validateInteriorSummaryAmount();
   });

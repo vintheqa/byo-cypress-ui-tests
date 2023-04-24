@@ -1,5 +1,5 @@
-import {PageObject} from "../support/pageObjects"
-import { configurePageElements, wrxPageElements, urls} from "../support/pageElements";
+import {PageObject} from "../../support/pageObjects"
+import { configurePageElements, wrxPageElements, urls} from "../../support/pageElements";
 
 const $PageObject = new PageObject();
 const variantColourCount: number = wrxPageElements.wrxSedanColorOptions.length
@@ -8,17 +8,17 @@ const variantInteriorCount: number = 1
 const variantStylingPackCount: number = 4
 const variantInteriorOptions = wrxPageElements.wrxInteriorOptions[1]
 const modelCode = 'AUWRX'
-const variantCode = 'AUVBHCKH6'
+const variantCode = 'AUVBHCKL8'
 
-let protectionIndex = $PageObject.getRandomNumber(4-1);
+let protectionIndex = $PageObject.getRandomNumber(5-1);
 let performanceIndex = $PageObject.getRandomNumber(13-1);
-let stylingIndex = $PageObject.getRandomNumber(14-1);
+let stylingIndex = $PageObject.getRandomNumber(12-1);
 let cargoIndex = $PageObject.getRandomNumber(2-1);
 let colorIndex = $PageObject.getRandomNumber(variantColourCount-1);
 let optionsIndex = $PageObject.getRandomNumber(variantStylingPackCount-1);
 
 
-describe("Build Your Own WRX - AWD RS Manual", () => {
+describe("Build Your Own WRX - AWD RS Sport", () => {
 
   it("CY_04 - Clicking of 'Build and Price' on any variant  on the variant landing page will redirect user to configurator page", () => {
     $PageObject.goToRootPage();
@@ -32,7 +32,7 @@ describe("Build Your Own WRX - AWD RS Manual", () => {
     $PageObject.goToVariantSelectionPage(urls.wrxVariantSelectionPage);
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode)
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(2);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(3);
     $PageObject.validateFullSpecModalSectionAndSubSectionHeaders();
   });
 
@@ -40,7 +40,7 @@ describe("Build Your Own WRX - AWD RS Manual", () => {
     $PageObject.goToVariantSelectionPage(urls.wrxVariantSelectionPage);
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode)
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(2);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(3);
     $PageObject.closeViewFullSpecModal();  
   });
 
@@ -66,7 +66,7 @@ describe("Build Your Own WRX - AWD RS Manual", () => {
     $PageObject.selectVariant(modelCode,variantCode)
     $PageObject.clickColourTab();
     $PageObject.selectColour(colorIndex,variantColourOptions[colorIndex]);
-    $PageObject.validateCarImgSrc(wrxPageElements.imgSrcWrxSedanAwdRsManual[colorIndex]);
+    $PageObject.validateCarImgSrc(wrxPageElements.imgSrcWrxSedanAwdRsSport[colorIndex]);
     $PageObject.clickShowFullSummary();
     $PageObject.validateColourSummaryAmount();
   });
@@ -86,7 +86,7 @@ describe("Build Your Own WRX - AWD RS Manual", () => {
     $PageObject.selectVariant(modelCode,variantCode)
     $PageObject.clickInteriorTab();
     $PageObject.selectInterior(0,variantInteriorOptions);
-    $PageObject.validateCarImgSrc(wrxPageElements.imgSrcWrxSedanAwdRsManual[0]);
+    $PageObject.validateCarImgSrc(wrxPageElements.imgSrcWrxSedanAwdRsSport[0]);
     $PageObject.clickShowFullSummary();
     $PageObject.validateInteriorSummaryAmount();
   });

@@ -1,35 +1,8 @@
 export const wrxPageElements = {
-    //model button on model selection
-    modelButton: 'a[href="/configure/trim-levels/AUWRX"]',
-    modelUrl: 'configure/trim-levels/AUWRX',
 
-    /*
-    //Variant Slides
-    wrxSedanAwdManual: 'div[data-test="productVariants:slide:AUVBHCKE6"]',
-    wrxSedanAwdSport: 'div[data-test="productVariants:slide:AUVBHCKJ8"]',
-    wrxSedanAwdRsManual: 'div[data-test="productVariants:slide:AUVBHCKH6"]',
-    wrxSedanAwdRsSport: 'div[data-test="productVariants:slide:AUVBHCKL8"]',
-    wrxSedanAwdTsSport: 'div[data-test="productVariants:slide:AUVBHCKB8"]',
-    wrxSportswagonAwd: 'div[data-test="productVariants:slide:AUVNHCKA8"]',
-    wrxSportswagonAwdGt: 'div[data-test="productVariants:slide:AUVNHCKA8_G"]',
-    wrxSportswagonAwdTs: 'div[data-test="productVariants:slide:AUVNHCKB8"]',
-  
-    
-
-
-    //url identifiers
-    sedanAwdManualConfigurePageUrl: '/configure/configure/AUWRX?carCode=AUVBHCKE6',
-    sedanAwdSportConfigurePageUrl: '/configure/configure/AUWRX?carCode=AUVBHCKJ8',
-    sedanAwdRsManualConfigurePageUrl: '/configure/configure/AUWRX?carCode=AUVBHCKH6',
-    sedanAwdRsSportConfigurePageUrl: '/configure/configure/AUWRX?carCode=AUVBHCKL8',
-    sedanAwdTsSportConfigurePageUrl: '/configure/configure/AUWRX?carCode=AUVBHCKB8',
-    sportswagonAwdConfigurePageUrl: '/configure/configure/AUWRX?carCode=AUVNHCKA8',
-    sportswagonAwdGtConfigurePageUrl: '/configure/configure/AUWRX?carCode=AUVNHCKA8_G',
-    sportswagonAwdTsConfigurePageUrl: '/configure/configure/AUWRX?carCode=AUVNHCKB8',
-  */
-  
-
-  
+  modelButton: 'a[href="/configure/trim-levels/AUWRX"]',
+  modelUrl: 'configure/trim-levels/AUWRX',
+ 
   wrxSedanVariants: [
     "WRX AWD Manual",
     "WRX AWD Sport Lineartronic®",
@@ -71,18 +44,6 @@ export const wrxPageElements = {
     "Black cloth",
     "Black leather accented",
     "Black Ultrasuede®",
-  ],
-
-  wrxInteriorBlackLeather: [
-    "Black leather accented",
-  ],
-
-  wrxInteriorBlackUltrasuede: [
-    "Black Ultrasuede®"
-  ],
-
-  wrxInteriorBlackGreyCloth: [
-    "Black and grey cloth",
   ],
 
   imgSrcWrxSedanAwdManual:[

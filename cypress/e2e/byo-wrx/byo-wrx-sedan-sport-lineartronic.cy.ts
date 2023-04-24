@@ -1,24 +1,23 @@
-import {PageObject} from "../support/pageObjects"
-import { configurePageElements, wrxPageElements, urls} from "../support/pageElements";
+import {PageObject} from "../../support/pageObjects"
+import { configurePageElements, wrxPageElements, urls} from "../../support/pageElements";
 
 const $PageObject = new PageObject();
 const variantColourCount: number = wrxPageElements.wrxSedanColorOptions.length
 const variantColourOptions = wrxPageElements.wrxSedanColorOptions
 const variantInteriorCount: number = 1
-const variantStylingPackCount: number = 3
-const variantInteriorOptions = wrxPageElements.wrxInteriorOptions[1]
+const variantStylingPackCount: number = 4
+const variantInteriorOptions = wrxPageElements.wrxInteriorOptions[0]
 const modelCode = 'AUWRX'
-const variantCode = 'AUVBHCKB8'
+const variantCode = 'AUVBHCKJ8'
 
-let protectionIndex = $PageObject.getRandomNumber(5-1);
+let protectionIndex = $PageObject.getRandomNumber(4-1);
 let performanceIndex = $PageObject.getRandomNumber(13-1);
 let stylingIndex = $PageObject.getRandomNumber(12-1);
 let cargoIndex = $PageObject.getRandomNumber(2-1);
 let colorIndex = $PageObject.getRandomNumber(variantColourCount-1);
 let optionsIndex = $PageObject.getRandomNumber(variantStylingPackCount-1);
 
-
-describe("Build Your Own WRX - AWD Ts Sport Lineratronic", () => {
+describe("Build Your Own WRX - AWD Sport Lineartronic", () => {
 
   it("CY_04 - Clicking of 'Build and Price' on any variant  on the variant landing page will redirect user to configurator page", () => {
     $PageObject.goToRootPage();
@@ -32,7 +31,7 @@ describe("Build Your Own WRX - AWD Ts Sport Lineratronic", () => {
     $PageObject.goToVariantSelectionPage(urls.wrxVariantSelectionPage);
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode)
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(4);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(1);
     $PageObject.validateFullSpecModalSectionAndSubSectionHeaders();
   });
 
@@ -40,7 +39,7 @@ describe("Build Your Own WRX - AWD Ts Sport Lineratronic", () => {
     $PageObject.goToVariantSelectionPage(urls.wrxVariantSelectionPage);
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode)
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(4);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(1);
     $PageObject.closeViewFullSpecModal();  
   });
 
@@ -66,7 +65,7 @@ describe("Build Your Own WRX - AWD Ts Sport Lineratronic", () => {
     $PageObject.selectVariant(modelCode,variantCode)
     $PageObject.clickColourTab();
     $PageObject.selectColour(colorIndex,variantColourOptions[colorIndex]);
-    $PageObject.validateCarImgSrc(wrxPageElements.imgSrcWrxSedanAwdTs[colorIndex]);
+    $PageObject.validateCarImgSrc(wrxPageElements.imgSrcWrxSedanAwdSport[colorIndex]);
     $PageObject.clickShowFullSummary();
     $PageObject.validateColourSummaryAmount();
   });
@@ -86,7 +85,7 @@ describe("Build Your Own WRX - AWD Ts Sport Lineratronic", () => {
     $PageObject.selectVariant(modelCode,variantCode)
     $PageObject.clickInteriorTab();
     $PageObject.selectInterior(0,variantInteriorOptions);
-    $PageObject.validateCarImgSrc(wrxPageElements.imgSrcWrxSedanAwdTs[0]);
+    $PageObject.validateCarImgSrc(wrxPageElements.imgSrcWrxSedanAwdSport[0]);
     $PageObject.clickShowFullSummary();
     $PageObject.validateInteriorSummaryAmount();
   });
