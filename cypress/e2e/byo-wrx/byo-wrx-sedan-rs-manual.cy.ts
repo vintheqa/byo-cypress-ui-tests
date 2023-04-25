@@ -96,8 +96,8 @@ describe("Build Your Own WRX - AWD RS Manual", () => {
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode)
     $PageObject.clickOptionsTab();
-    $PageObject.validateNumOfStylingPackOptions(variantStylingPackCount);
-    $PageObject.clickShowFeaturesStylingPack(optionsIndex);
+    $PageObject.validateNumOfOptionPacks(variantStylingPackCount);
+    $PageObject.clickShowFeaturesOptionPack(optionsIndex);
   });
 
   it("CY_12 - 'Modal window on 'Show features' should have working close button", () => {
@@ -105,8 +105,8 @@ describe("Build Your Own WRX - AWD RS Manual", () => {
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode)
     $PageObject.clickOptionsTab();
-    $PageObject.clickShowFeaturesStylingPack(optionsIndex);
-    $PageObject.closeStylingPackModal();
+    $PageObject.clickShowFeaturesOptionPack(optionsIndex);
+    $PageObject.closeOptionPackModal();
   });
 
   it("CY_13 - 'Modal window for 'Show features' should have working 'Add' button", () => {
@@ -114,8 +114,8 @@ describe("Build Your Own WRX - AWD RS Manual", () => {
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode)
     $PageObject.clickOptionsTab();
-    $PageObject.selectAddStylingPack(optionsIndex);
-    $PageObject.validateModalSelectedStylingPack(optionsIndex);
+    $PageObject.selectAddOptionPack(optionsIndex);
+    $PageObject.validateModalSelectedOptionPack(optionsIndex);
   });
 
   it("CY_14 - Ticked checkbox under 'Options', on any accessory pack, should be captured in the modal window", () => {
@@ -123,8 +123,8 @@ describe("Build Your Own WRX - AWD RS Manual", () => {
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode)
     $PageObject.clickOptionsTab();
-    $PageObject.selectTickStylingPack(optionsIndex);
-    $PageObject.validateModalSelectedStylingPack(optionsIndex);
+    $PageObject.selectTickOptionPack(optionsIndex);
+    $PageObject.validateModalSelectedOptionPack(optionsIndex);
   });
 
   it("CY_15 - Selected accessory pack and price should display on the summary section", () => {
@@ -132,7 +132,7 @@ describe("Build Your Own WRX - AWD RS Manual", () => {
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode)
     $PageObject.clickOptionsTab();
-    $PageObject.selectAddStylingPack(optionsIndex);
+    $PageObject.selectAddOptionPack(optionsIndex);
     $PageObject.clickShowFullSummary();
     $PageObject.validateOptionsSummaryAmount(optionsIndex);
   });
@@ -215,7 +215,7 @@ describe("Build Your Own WRX - AWD RS Manual", () => {
     $PageObject.selectInterior(0,variantInteriorOptions);
   
     $PageObject.clickOptionsTab();
-    $PageObject.selectAddStylingPack(optionsIndex);
+    $PageObject.selectAddOptionPack(optionsIndex);
 
     $PageObject.clickAccessoriesTab();
     $PageObject.selectAccessory(configurePageElements.protectionAccordion,protectionIndex);

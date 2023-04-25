@@ -17,6 +17,7 @@ let convenienceSafetyIndex = $PageObject.getRandomNumber(8-1);
 let performanceIndex = $PageObject.getRandomNumber(8-1);
 let stylingIndex = $PageObject.getRandomNumber(3-1);
 let colorIndex = $PageObject.getRandomNumber(variantColourCount-1);
+let interiorIndex = $PageObject.getRandomNumber(variantInteriorCount-1);
 let optionsIndex = $PageObject.getRandomNumber(variantStylingPackCount-1);
 
 describe("Build Your Own Impreza 2.0i Premium AWD Sedan", () => {
@@ -76,7 +77,7 @@ describe("Build Your Own Impreza 2.0i Premium AWD Sedan", () => {
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickInteriorTab();
     $PageObject.validateNumOfInteriorOptions(variantInteriorCount);
-    $PageObject.selectInterior(0,variantInteriorOptions);
+    $PageObject.selectInterior(interiorIndex,variantInteriorOptions[interiorIndex]);
   });
 
   it("CY_10 - Ability to select any interior", () => {
@@ -84,7 +85,7 @@ describe("Build Your Own Impreza 2.0i Premium AWD Sedan", () => {
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickInteriorTab();
-    $PageObject.selectInterior(0,variantInteriorOptions);
+    $PageObject.selectInterior(interiorIndex,variantInteriorOptions[interiorIndex]);
     $PageObject.validateCarImgSrc(imprezaPageElements.imgSrc.SedanPremium[0]);
     $PageObject.clickShowFullSummary();
     $PageObject.validateInteriorSummaryAmount();
@@ -95,8 +96,8 @@ describe("Build Your Own Impreza 2.0i Premium AWD Sedan", () => {
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickOptionsTab();
-    $PageObject.validateNumOfStylingPackOptions(variantStylingPackCount);
-    $PageObject.clickShowFeaturesStylingPack(optionsIndex);
+    $PageObject.validateNumOfOptionPacks(variantStylingPackCount);
+    $PageObject.clickShowFeaturesOptionPack(optionsIndex);
   });
 
   it("CY_12 - 'Modal window on 'Show features' should have working close button", () => {
@@ -104,8 +105,8 @@ describe("Build Your Own Impreza 2.0i Premium AWD Sedan", () => {
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickOptionsTab();
-    $PageObject.clickShowFeaturesStylingPack(optionsIndex);
-    $PageObject.closeStylingPackModal();
+    $PageObject.clickShowFeaturesOptionPack(optionsIndex);
+    $PageObject.closeOptionPackModal();
   });
 
   it("CY_13 - 'Modal window for 'Show features' should have working 'Add' button", () => {
@@ -113,8 +114,8 @@ describe("Build Your Own Impreza 2.0i Premium AWD Sedan", () => {
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickOptionsTab();
-    $PageObject.selectAddStylingPack(optionsIndex);
-    $PageObject.validateModalSelectedStylingPack(optionsIndex);
+    $PageObject.selectAddOptionPack(optionsIndex);
+    $PageObject.validateModalSelectedOptionPack(optionsIndex);
   });
 
   it("CY_14 - Ticked checkbox under 'Options', on any accessory pack, should be captured in the modal window", () => {
@@ -122,8 +123,8 @@ describe("Build Your Own Impreza 2.0i Premium AWD Sedan", () => {
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickOptionsTab();
-    $PageObject.selectTickStylingPack(optionsIndex);
-    $PageObject.validateModalSelectedStylingPack(optionsIndex);
+    $PageObject.selectTickOptionPack(optionsIndex);
+    $PageObject.validateModalSelectedOptionPack(optionsIndex);
   });
 
   it("CY_15 - Selected accessory pack and price should display on the summary section", () => {
@@ -131,7 +132,7 @@ describe("Build Your Own Impreza 2.0i Premium AWD Sedan", () => {
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickOptionsTab();
-    $PageObject.selectAddStylingPack(optionsIndex);
+    $PageObject.selectAddOptionPack(optionsIndex);
     $PageObject.clickShowFullSummary();
     $PageObject.validateOptionsSummaryAmount(optionsIndex);
   });
@@ -222,10 +223,10 @@ describe("Build Your Own Impreza 2.0i Premium AWD Sedan", () => {
     $PageObject.selectColour(colorIndex,variantColourOptions[colorIndex]);
 
     $PageObject.clickInteriorTab();
-    $PageObject.selectInterior(0,variantInteriorOptions);
+    $PageObject.selectInterior(interiorIndex,variantInteriorOptions[interiorIndex]);
   
     $PageObject.clickOptionsTab();
-    $PageObject.selectAddStylingPack(optionsIndex);
+    $PageObject.selectAddOptionPack(optionsIndex);
 
     $PageObject.clickAccessoriesTab();
     $PageObject.selectAccessory(configurePageElements.protectionAccordion,protectionIndex);

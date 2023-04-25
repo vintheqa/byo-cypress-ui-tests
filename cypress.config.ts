@@ -18,5 +18,6 @@ export default defineConfig({
     specPattern: "cypress/e2e/**/*.cy.ts",
     pageLoadTimeout: 120000,
     defaultCommandTimeout: 10000,
+    watchForFileChanges: false
   },
 });

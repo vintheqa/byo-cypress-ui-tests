@@ -16,7 +16,7 @@ export const imprezaPageElements = {
   ],
 
   imprezaSedanColorOptions: [
-    "Ceramic White",
+    "Crystal White Pearl",
     "Ice Silver Metallic",
     "Pure Red",
     "Sapphire Blue Pearl",
@@ -25,14 +25,14 @@ export const imprezaPageElements = {
   ],
 
   imprezaHatchSColorOptions: [
-    "Ceramic White",
+    "Crystal White Pearl",
     "Magnetite Grey Metallic",
     "Crystal Black Silica",
     "Pure Red",
   ],
 
   imprezaHatchColorOptions: [
-    "Ceramic White",
+    "Crystal White Pearl",
     "Ice Silver Metallic",
     "Pure Red",
     "Sapphire Blue Pearl",

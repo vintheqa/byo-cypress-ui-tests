@@ -175,33 +175,34 @@ export class PageObject {
     cy.get(configurePageElements.optionsAccordion).should('be.visible')
   }
 
-  validateNumOfStylingPackOptions(numOfOptions: number) {
+  validateNumOfOptionPacks(numOfOptions: number) {
     cy.get('div[id="customise_subaruaccessorypack"]').find('div[data-test*="option:pack"]').should('have.lengthOf',numOfOptions)
   }
 
-  clickShowFeaturesStylingPack(index: number) {
+  clickShowFeaturesOptionPack(index: number) {
     cy.get('div[id="customise_subaruaccessorypack"]').find('div[data-test*="option:pack"]').eq(index).find('span').contains('Show features').click();
     cy.get('div[role="dialog"]').find('div[data-test="text:accessory-pack:title"]').should('be.visible');
   }
 
-  closeStylingPackModal() {
+  closeOptionPackModal() {
     cy.get('div[role="dialog"]').find('button[data-test="button:close"]').click();
     cy.get('div[role="dialog"]').should('not.exist');
   }
 
-  selectAddStylingPack(index: number) {
-    this.clickShowFeaturesStylingPack(index);
+  selectAddOptionPack(index: number) {
+    this.clickShowFeaturesOptionPack(index);
     cy.get('button[data-test="button:accessory-pack:toggle"]').find('span').contains('Add').click();
-    this.closeStylingPackModal();
-    cy.get('div[id="customise_subaruaccessorypack"]').find('div[data-test*="option:pack"]').eq(index).find('p').contains('Styling Pack').should('have.attr','data-option','accessory_pack:selected');
+    this.closeOptionPackModal();
+    cy.get('div[id="customise_subaruaccessorypack"]').find('div[data-test*="option:pack"]').eq(index).find('p').should('have.attr','data-option','accessory_pack:selected').should('exist');
+    //cy.get('div[id="customise_subaruaccessorypack"]').find('div[data-test*="option:pack"]').eq(index).find('p').contains(optionPackName).should('have.attr','data-option','accessory_pack:selected');
   }
 
-  selectTickStylingPack(index: number) {
+  selectTickOptionPack(index: number) {
     cy.get('span[data-test="pack:checkbox"').eq(index).click();
   }
 
-  validateModalSelectedStylingPack(index: number) {
-    this.clickShowFeaturesStylingPack(index);
+  validateModalSelectedOptionPack(index: number) {
+    this.clickShowFeaturesOptionPack(index);
     cy.get('button[data-test="button:accessory-pack:toggle"]').find('span').contains('Remove').should('be.visible');
   }
 
