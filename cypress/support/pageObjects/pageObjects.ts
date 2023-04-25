@@ -307,8 +307,8 @@ checkPaymentOptionsOnFooter(){
 }
 
 clickFinanceOptionOnFooter(){
-  cy.get(configurePageElements.financeButton).click({waitForAnimations: false});
-  cy.wait(2000);
+  cy.get(configurePageElements.financeButton).click();
+  cy.wait(3000);
   cy.get('div[role="dialog"]').should('be.visible',{timeout:10000});
   cy.get('div[data-test="common:genericAccordion:calculator"]').should('be.visible');
   cy.wait(500);
@@ -345,7 +345,7 @@ setLoanTerm(termsOption: number){
 clickContinueCalculateModal(){
   cy.get(configurePageElements.continueButtonCalculateModal).scrollIntoView();
   cy.get(configurePageElements.continueButtonCalculateModal).click();
-  cy.wait(1000);
+  cy.wait(3000);
   cy.get('div[role="dialog"]').should('not.exist',{timeout:10000});
   cy.wait(500);
 }
