@@ -12,7 +12,8 @@ export const imprezaPageElements = {
   imprezaHatchVariants: [
     "Impreza AWD S-Edition",
     "Impreza 2.0i-S AWD Hatch",
-    "Impreza 2.0i Premium AWD Hatch"
+    "Impreza 2.0i Premium AWD Hatch",
+    "Impreza 2.0i-L AWD Hatch",
   ],
 
   imprezaSedanColorOptions: [
@@ -46,7 +47,7 @@ export const imprezaPageElements = {
     "SedanL" : ['Premium Black Cloth','Premium Ivory Cloth'],
     "HatchSpecEdition" : ['Black Leather'],
     "HatchS" : ['Ivory Leather','Black Leather'],
-    "HatchPremium" : ['Premium Ivory Cloth','Premium Black Cloth'],
+    "HatchPremium" : ['Premium Black Cloth','Premium Ivory Cloth'],
     "HatchL" : ['Premium Black Cloth','Premium Ivory Cloth'],
   },
 

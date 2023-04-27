@@ -57,6 +57,12 @@ export class PageObject {
       cy.url().should('include',`/configure/configure/${modelCode}?carCode=${variantCode}`);
   }
 
+  clickVariantImg(modelCode: string, variantCode: string){
+    cy.get(`div[data-test="productVariants:slide:${variantCode}"]`).scrollIntoView()
+    cy.get(`div[data-test="productVariants:slide:${variantCode}"]`).find('img').click()
+    cy.url().should('include',`/configure/configure/${modelCode}?carCode=${variantCode}`);
+}
+
   goToVariantConfigurePage(variantConfigurePageUrl){
       cy.visit(variantConfigurePageUrl)
   }

@@ -2,25 +2,25 @@ import {PageObject} from "../../support/pageObjects"
 import { configurePageElements, imprezaPageElements, urls} from "../../support/pageElements";
 
 const $PageObject = new PageObject();
-const variantColourCount: number = imprezaPageElements.imprezaHatchSColorOptions.length
-const variantColourOptions = imprezaPageElements.imprezaHatchSColorOptions
-const variantInteriorCount: number = imprezaPageElements.imprezaInteriorOptions.HatchSpecEdition.length
+const variantColourCount: number = imprezaPageElements.imprezaHatchColorOptions.length
+const variantColourOptions = imprezaPageElements.imprezaHatchColorOptions
+const variantInteriorCount: number = imprezaPageElements.imprezaInteriorOptions.HatchS.length
 const variantStylingPackCount: number = 2
-const variantInteriorOptions = imprezaPageElements.imprezaInteriorOptions.HatchSpecEdition
+const variantInteriorOptions = imprezaPageElements.imprezaInteriorOptions.HatchS
 const modelCode = 'AUIMP'
-const variantCode = 'AUGT7FKBL_S'
+const variantCode = 'AUGT7FKBL'
 
-let protectionIndex = $PageObject.getRandomNumber(16-1);
-let cargoTowIndex = $PageObject.getRandomNumber(22-1);
-let securityIndex = $PageObject.getRandomNumber(2-1);
+let protectionIndex = $PageObject.getRandomNumber(18-1);
+let cargoTowIndex = $PageObject.getRandomNumber(18-1);
+let securityIndex = $PageObject.getRandomNumber(1-1);
 let convenienceSafetyIndex = $PageObject.getRandomNumber(8-1);
-let performanceIndex = $PageObject.getRandomNumber(7-1);
-let stylingIndex = $PageObject.getRandomNumber(2-1);
+let performanceIndex = $PageObject.getRandomNumber(11-1);
+let stylingIndex = $PageObject.getRandomNumber(4-1);
 let colorIndex = $PageObject.getRandomNumber(variantColourCount-1);
 let interiorIndex = $PageObject.getRandomNumber(variantInteriorCount-1);
 let optionsIndex = $PageObject.getRandomNumber(variantStylingPackCount-1);
 
-describe("Build Your Own - Impreza AWD S-Edition", () => {
+describe("Build Your Own - Impreza 2.0i-S AWD Hatch", () => {
 
   it("CY_04 - Clicking of 'Build and Price' on any variant  on the variant landing page will redirect user to configurator page", () => {
     $PageObject.goToRootPage();
@@ -35,7 +35,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
     $PageObject.selectVariant(modelCode,variantCode);
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(0);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(1);
     $PageObject.validateFullSpecModalSectionAndSubSectionHeaders(imprezaPageElements.specsAndFeatureModalSubSections);
   });
 
@@ -43,7 +43,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
     $PageObject.selectVariant(modelCode,variantCode);
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(0);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(1);
     $PageObject.closeViewFullSpecModal();  
   });
 
@@ -65,7 +65,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickColourTab();
     $PageObject.selectColour(colorIndex,variantColourOptions[colorIndex]);
-    $PageObject.validateCarImgSrc(imprezaPageElements.imgSrc.HatchSpecEdition[colorIndex]);
+    $PageObject.validateCarImgSrc(imprezaPageElements.imgSrc.HatchS[colorIndex]);
     $PageObject.clickShowFullSummary();
     $PageObject.validateColourSummaryAmount();
   });
@@ -85,7 +85,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickInteriorTab();
     $PageObject.selectInterior(interiorIndex,variantInteriorOptions[interiorIndex]);
-    $PageObject.validateCarImgSrc(imprezaPageElements.imgSrc.HatchSpecEdition[0]);
+    $PageObject.validateCarImgSrc(imprezaPageElements.imgSrc.HatchS[0]);
     $PageObject.clickShowFullSummary();
     $PageObject.validateInteriorSummaryAmount();
   });

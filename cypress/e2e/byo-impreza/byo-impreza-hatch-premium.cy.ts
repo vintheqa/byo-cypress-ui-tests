@@ -2,25 +2,25 @@ import {PageObject} from "../../support/pageObjects"
 import { configurePageElements, imprezaPageElements, urls} from "../../support/pageElements";
 
 const $PageObject = new PageObject();
-const variantColourCount: number = imprezaPageElements.imprezaHatchSColorOptions.length
-const variantColourOptions = imprezaPageElements.imprezaHatchSColorOptions
-const variantInteriorCount: number = imprezaPageElements.imprezaInteriorOptions.HatchSpecEdition.length
+const variantColourCount: number = imprezaPageElements.imprezaHatchColorOptions.length
+const variantColourOptions = imprezaPageElements.imprezaHatchColorOptions
+const variantInteriorCount: number = imprezaPageElements.imprezaInteriorOptions.HatchPremium.length
 const variantStylingPackCount: number = 2
-const variantInteriorOptions = imprezaPageElements.imprezaInteriorOptions.HatchSpecEdition
+const variantInteriorOptions = imprezaPageElements.imprezaInteriorOptions.HatchPremium
 const modelCode = 'AUIMP'
-const variantCode = 'AUGT7FKBL_S'
+const variantCode = 'AUGT7FKAL_P'
 
-let protectionIndex = $PageObject.getRandomNumber(16-1);
-let cargoTowIndex = $PageObject.getRandomNumber(22-1);
-let securityIndex = $PageObject.getRandomNumber(2-1);
+let protectionIndex = $PageObject.getRandomNumber(19-1);
+let cargoTowIndex = $PageObject.getRandomNumber(18-1);
+let securityIndex = $PageObject.getRandomNumber(1-1);
 let convenienceSafetyIndex = $PageObject.getRandomNumber(8-1);
 let performanceIndex = $PageObject.getRandomNumber(7-1);
-let stylingIndex = $PageObject.getRandomNumber(2-1);
+let stylingIndex = $PageObject.getRandomNumber(3-1);
 let colorIndex = $PageObject.getRandomNumber(variantColourCount-1);
 let interiorIndex = $PageObject.getRandomNumber(variantInteriorCount-1);
 let optionsIndex = $PageObject.getRandomNumber(variantStylingPackCount-1);
 
-describe("Build Your Own - Impreza AWD S-Edition", () => {
+describe("Build Your Own - Impreza 2.0i Premium AWD Hatch", () => {
 
   it("CY_04 - Clicking of 'Build and Price' on any variant  on the variant landing page will redirect user to configurator page", () => {
     $PageObject.goToRootPage();
@@ -35,7 +35,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
     $PageObject.selectVariant(modelCode,variantCode);
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(0);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(2);
     $PageObject.validateFullSpecModalSectionAndSubSectionHeaders(imprezaPageElements.specsAndFeatureModalSubSections);
   });
 
@@ -43,7 +43,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
     $PageObject.selectVariant(modelCode,variantCode);
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(0);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(2);
     $PageObject.closeViewFullSpecModal();  
   });
 
@@ -57,6 +57,8 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
     $PageObject.selectColour(1,variantColourOptions[1]);
     $PageObject.selectColour(2,variantColourOptions[2]);
     $PageObject.selectColour(3,variantColourOptions[3]);
+    $PageObject.selectColour(4,variantColourOptions[4]);
+    $PageObject.selectColour(5,variantColourOptions[5]);
   });
 
   it("CY_08 - Ability to select any variant color", () => {
@@ -65,7 +67,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickColourTab();
     $PageObject.selectColour(colorIndex,variantColourOptions[colorIndex]);
-    $PageObject.validateCarImgSrc(imprezaPageElements.imgSrc.HatchSpecEdition[colorIndex]);
+    $PageObject.validateCarImgSrc(imprezaPageElements.imgSrc.HatchPremium[colorIndex]);
     $PageObject.clickShowFullSummary();
     $PageObject.validateColourSummaryAmount();
   });
@@ -85,7 +87,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickInteriorTab();
     $PageObject.selectInterior(interiorIndex,variantInteriorOptions[interiorIndex]);
-    $PageObject.validateCarImgSrc(imprezaPageElements.imgSrc.HatchSpecEdition[0]);
+    $PageObject.validateCarImgSrc(imprezaPageElements.imgSrc.HatchPremium[0]);
     $PageObject.clickShowFullSummary();
     $PageObject.validateInteriorSummaryAmount();
   });

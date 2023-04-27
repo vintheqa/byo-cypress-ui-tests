@@ -2,25 +2,25 @@ import {PageObject} from "../../support/pageObjects"
 import { configurePageElements, imprezaPageElements, urls} from "../../support/pageElements";
 
 const $PageObject = new PageObject();
-const variantColourCount: number = imprezaPageElements.imprezaHatchSColorOptions.length
-const variantColourOptions = imprezaPageElements.imprezaHatchSColorOptions
-const variantInteriorCount: number = imprezaPageElements.imprezaInteriorOptions.HatchSpecEdition.length
+const variantColourCount: number = imprezaPageElements.imprezaHatchColorOptions.length
+const variantColourOptions = imprezaPageElements.imprezaHatchColorOptions
+const variantInteriorCount: number = imprezaPageElements.imprezaInteriorOptions.HatchL.length
 const variantStylingPackCount: number = 2
-const variantInteriorOptions = imprezaPageElements.imprezaInteriorOptions.HatchSpecEdition
+const variantInteriorOptions = imprezaPageElements.imprezaInteriorOptions.HatchL
 const modelCode = 'AUIMP'
-const variantCode = 'AUGT7FKBL_S'
+const variantCode = 'AUGT7FKAL'
 
-let protectionIndex = $PageObject.getRandomNumber(16-1);
-let cargoTowIndex = $PageObject.getRandomNumber(22-1);
-let securityIndex = $PageObject.getRandomNumber(2-1);
+let protectionIndex = $PageObject.getRandomNumber(19-1);
+let cargoTowIndex = $PageObject.getRandomNumber(18-1);
+let securityIndex = $PageObject.getRandomNumber(1-1);
 let convenienceSafetyIndex = $PageObject.getRandomNumber(8-1);
 let performanceIndex = $PageObject.getRandomNumber(7-1);
-let stylingIndex = $PageObject.getRandomNumber(2-1);
+let stylingIndex = $PageObject.getRandomNumber(3-1);
 let colorIndex = $PageObject.getRandomNumber(variantColourCount-1);
 let interiorIndex = $PageObject.getRandomNumber(variantInteriorCount-1);
 let optionsIndex = $PageObject.getRandomNumber(variantStylingPackCount-1);
 
-describe("Build Your Own - Impreza AWD S-Edition", () => {
+describe("Build Your Own - Impreza 2.0i-L AWD Hatch", () => {
 
   it("CY_04 - Clicking of 'Build and Price' on any variant  on the variant landing page will redirect user to configurator page", () => {
     $PageObject.goToRootPage();
@@ -28,44 +28,46 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
     $PageObject.setPostCode(4000);
     $PageObject.selectVehicleModel(imprezaPageElements.modelButton,imprezaPageElements.modelUrl,0);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
+    $PageObject.clickVariantImg(modelCode,variantCode);
   });
 
   it("CY_05 - 'View Full Specifications & Features' hyperlink should open a modal window displaying the variant's Specs & Features", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(0);
+    $PageObject.clickVariantImg(modelCode,variantCode);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(3);
     $PageObject.validateFullSpecModalSectionAndSubSectionHeaders(imprezaPageElements.specsAndFeatureModalSubSections);
   });
 
   it("CY_06 - 'View Full Specifications & Features' modal window should have close button", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(0);
+    $PageObject.clickVariantImg(modelCode,variantCode);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(3);
     $PageObject.closeViewFullSpecModal();  
   });
 
   it("CY_07 - 'Colour' section should display correct swatch names (eg. No special characters & numbers)", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
+    $PageObject.clickVariantImg(modelCode,variantCode);
     $PageObject.clickColourTab();
     $PageObject.validateNumOfColourOptions(variantColourCount);
     $PageObject.selectColour(0,variantColourOptions[0]);
     $PageObject.selectColour(1,variantColourOptions[1]);
     $PageObject.selectColour(2,variantColourOptions[2]);
     $PageObject.selectColour(3,variantColourOptions[3]);
+    $PageObject.selectColour(4,variantColourOptions[4]);
+    $PageObject.selectColour(5,variantColourOptions[5]);
   });
 
   it("CY_08 - Ability to select any variant color", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
+    $PageObject.clickVariantImg(modelCode,variantCode);
     $PageObject.clickColourTab();
     $PageObject.selectColour(colorIndex,variantColourOptions[colorIndex]);
-    $PageObject.validateCarImgSrc(imprezaPageElements.imgSrc.HatchSpecEdition[colorIndex]);
+    $PageObject.validateCarImgSrc(imprezaPageElements.imgSrc.HatchL[colorIndex]);
     $PageObject.clickShowFullSummary();
     $PageObject.validateColourSummaryAmount();
   });
@@ -73,7 +75,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
   it("CY_09 - 'Interior' section should display correct swatch names (eg. No special characters & numbers)", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
+    $PageObject.clickVariantImg(modelCode,variantCode);
     $PageObject.clickInteriorTab();
     $PageObject.validateNumOfInteriorOptions(variantInteriorCount);
     $PageObject.selectInterior(interiorIndex,variantInteriorOptions[interiorIndex]);
@@ -82,10 +84,10 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
   it("CY_10 - Ability to select any interior", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
+    $PageObject.clickVariantImg(modelCode,variantCode);
     $PageObject.clickInteriorTab();
     $PageObject.selectInterior(interiorIndex,variantInteriorOptions[interiorIndex]);
-    $PageObject.validateCarImgSrc(imprezaPageElements.imgSrc.HatchSpecEdition[0]);
+    $PageObject.validateCarImgSrc(imprezaPageElements.imgSrc.HatchL[0]);
     $PageObject.clickShowFullSummary();
     $PageObject.validateInteriorSummaryAmount();
   });
@@ -93,7 +95,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
   it("CY_11 - 'Show features' hyperlink under 'Options' section should display accessories", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
+    $PageObject.clickVariantImg(modelCode,variantCode);
     $PageObject.clickOptionsTab();
     $PageObject.validateNumOfOptionPacks(variantStylingPackCount);
     $PageObject.clickShowFeaturesOptionPack(optionsIndex);
@@ -102,7 +104,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
   it("CY_12 - 'Modal window on 'Show features' should have working close button", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
+    $PageObject.clickVariantImg(modelCode,variantCode);
     $PageObject.clickOptionsTab();
     $PageObject.clickShowFeaturesOptionPack(optionsIndex);
     $PageObject.closeOptionPackModal();
@@ -111,7 +113,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
   it("CY_13 - 'Modal window for 'Show features' should have working 'Add' button", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
+    $PageObject.clickVariantImg(modelCode,variantCode);
     $PageObject.clickOptionsTab();
     $PageObject.selectAddOptionPack(optionsIndex);
     $PageObject.validateModalSelectedOptionPack(optionsIndex);
@@ -120,7 +122,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
   it("CY_14 - Ticked checkbox under 'Options', on any accessory pack, should be captured in the modal window", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
+    $PageObject.clickVariantImg(modelCode,variantCode);
     $PageObject.clickOptionsTab();
     $PageObject.selectTickOptionPack(optionsIndex);
     $PageObject.validateModalSelectedOptionPack(optionsIndex);
@@ -129,7 +131,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
   it("CY_15 - Selected accessory pack and price should display on the summary section", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
+    $PageObject.clickVariantImg(modelCode,variantCode);
     $PageObject.clickOptionsTab();
     $PageObject.selectAddOptionPack(optionsIndex);
     $PageObject.clickShowFullSummary();
@@ -139,7 +141,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
   it("CY_16 - User should be able to select any accessories on any section under 'Accessories'", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
+    $PageObject.clickVariantImg(modelCode,variantCode);
     $PageObject.clickAccessoriesTab();
     $PageObject.selectAccessory(configurePageElements.protectionAccordion,protectionIndex);
     $PageObject.clickElement(configurePageElements.cargoTowAccordion);
@@ -164,7 +166,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
   it("CY_17 - User should be able to deselect any accessories selected on any section under 'Accessories'", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
+    $PageObject.clickVariantImg(modelCode,variantCode);
     $PageObject.clickAccessoriesTab();
     $PageObject.selectAccessory(configurePageElements.protectionAccordion,protectionIndex);
     $PageObject.clickElement(configurePageElements.cargoTowAccordion);
@@ -197,7 +199,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
   it("CY_18 - Ability to see the price breakdown included on the service plan", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
+    $PageObject.clickVariantImg(modelCode,variantCode);
     $PageObject.clickServicePlansTab();
     $PageObject.expandPriceGuide();
     $PageObject.collapsePriceGuide();
@@ -206,7 +208,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
   it("CY_19 - Ability to select available Service Plan", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
+    $PageObject.clickVariantImg(modelCode,variantCode);
     $PageObject.clickServicePlansTab();
     $PageObject.selectServicePlan(0);
     $PageObject.clickShowFullSummary();
@@ -216,7 +218,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
   it("CY_20 - User should see the summary of the selected variant on the 'Summary' section", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
+    $PageObject.clickVariantImg(modelCode,variantCode);
 
     $PageObject.clickColourTab();
     $PageObject.selectColour(colorIndex,variantColourOptions[colorIndex]);
@@ -245,7 +247,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
   it("CY_21 - Ability to choose FINANCE option for payment", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
+    $PageObject.clickVariantImg(modelCode,variantCode);
     $PageObject.checkPaymentOptionsOnFooter();
     $PageObject.clickFinanceOptionOnFooter();
     $PageObject.setPropertyOwner(false);
@@ -261,7 +263,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
   it("CY_22 - Ability to choose CASH option for payment", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
+    $PageObject.clickVariantImg(modelCode,variantCode);
     $PageObject.checkPaymentOptionsOnFooter();
     $PageObject.clickShowFullSummary();
     $PageObject.checkDriveawayPriceValueOnFooterAndSummary();
@@ -273,7 +275,7 @@ describe("Build Your Own - Impreza AWD S-Edition", () => {
   it.skip("CY_24 - ' 'Buy Online' button on configurator page will redirect user to the checkout page", () => {
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.selectVariantType('Hatch');
-    $PageObject.selectVariant(modelCode,variantCode);
+    $PageObject.clickVariantImg(modelCode,variantCode);
 
     /*
     $PageObject.clickColourTab();

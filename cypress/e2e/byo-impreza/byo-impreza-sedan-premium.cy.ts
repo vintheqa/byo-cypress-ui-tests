@@ -20,7 +20,7 @@ let colorIndex = $PageObject.getRandomNumber(variantColourCount-1);
 let interiorIndex = $PageObject.getRandomNumber(variantInteriorCount-1);
 let optionsIndex = $PageObject.getRandomNumber(variantStylingPackCount-1);
 
-describe("Build Your Own Impreza 2.0i Premium AWD Sedan", () => {
+describe("Build Your Own - Impreza 2.0i Premium AWD Sedan", () => {
 
   it("CY_04 - Clicking of 'Build and Price' on any variant  on the variant landing page will redirect user to configurator page", () => {
     $PageObject.goToRootPage();

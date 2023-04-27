@@ -3,7 +3,7 @@ import {wrxPageElements, urls} from "../../support/pageElements";
 
 const $PageObject = new PageObject();
 
-describe("Build Your Own WRX", () => {
+describe("Build Your Own - WRX", () => {
 
   before(()=>{
     $PageObject.goToRootPage();

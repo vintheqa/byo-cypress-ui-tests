@@ -3,7 +3,7 @@ import {imprezaPageElements, urls} from "../../support/pageElements";
 
 const $PageObject = new PageObject();
 
-describe("Build Your Own Impreza", () => {
+describe("Build Your Own - Impreza", () => {
 
   before(()=>{
     $PageObject.goToRootPage();
