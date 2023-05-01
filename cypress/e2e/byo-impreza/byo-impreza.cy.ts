@@ -20,11 +20,11 @@ describe("Build Your Own - Impreza", () => {
 
   it("CY_02 - Each variants are separated according to body type or fuel type (Sedan/Hatch or Petrol/Hybrid)", () => {
     const sedanVariantCount = imprezaPageElements.imprezaSedanVariants.length
-    const sportsWagonVariantCount = imprezaPageElements.imprezaHatchVariants.length
+    const hatchVariantCount = imprezaPageElements.imprezaHatchVariants.length
     
     $PageObject.goToVariantSelectionPage(urls.imprezaVariantSelectionPage);
     $PageObject.validateVariantTypesAndVariantCount('Sedan',sedanVariantCount);
-    $PageObject.validateVariantTypesAndVariantCount('Sportswagon',sportsWagonVariantCount);
+    $PageObject.validateVariantTypesAndVariantCount('Hatch',hatchVariantCount);
   });
 
   it("CY_03 - Each variant displays the name correctly", () => {

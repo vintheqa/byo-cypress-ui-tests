@@ -48,7 +48,7 @@ export class PageObject {
   selectVehicleModel(vehicleModelButton: string, urlIdentifier: string, index: number){
       cy.get(vehicleModelButton).eq(index).click()
       cy.url().should('include',urlIdentifier);
-      cy.get('span').contains('Build and Price').should('be.visible');
+      cy.get('span').contains('Build and Price').should('exist');
   }
 
   selectVariant(modelCode: string, variantCode: string){

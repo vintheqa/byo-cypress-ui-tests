@@ -1,3 +1,4 @@
+export * from "./brzPage";
 export * from "./configurePage";
 export * from "./homePageElements";
 export * from "./imprezaPage";
