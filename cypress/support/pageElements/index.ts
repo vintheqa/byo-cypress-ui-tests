@@ -2,5 +2,6 @@ export * from "./brzPage";
 export * from "./configurePage";
 export * from "./homePageElements";
 export * from "./imprezaPage";
+export * from "./outbackPage";
 export * from "./wrxPage";
 export * from "./urls";

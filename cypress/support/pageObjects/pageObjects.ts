@@ -73,21 +73,32 @@ export class PageObject {
   }
 
   validateVariantTypesAndVariantCount(variantType: string, variantCount: number){
+    if(variantType == 'n/a'){
+      cy.get('div[data-test*="productVariants"]').should('have.lengthOf',variantCount)
+    }else if(variantType != 'n/a'){
       cy.get('span').contains(variantType).should('be.visible');
       cy.get('span').contains(variantType).click();
       cy.wait(1000);
       cy.get('div[data-test*="productVariants"]').should('have.lengthOf',variantCount)
+    }
   }
 
   validateVariantName(variantType: string, variantNames: any){ 
-    cy.get('span').contains(variantType).click();
-    cy.wait(1000);
-
-    cy.get('p[data-test="text:trimLevel:title"]').children('span').should(($span) => {
-      variantNames.forEach((word) => {
-        expect($span.text()).to.include(word);
+    if(variantType == 'n/a'){
+      cy.get('p[data-test="text:trimLevel:title"]').children('span').should(($span) => {
+        variantNames.forEach((word) => {
+          expect($span.text()).to.include(word);
+        });
       });
-    });
+    }else if(variantType != 'n/a'){
+      cy.get('span').contains(variantType).click();
+      cy.wait(1000);
+      cy.get('p[data-test="text:trimLevel:title"]').children('span').should(($span) => {
+        variantNames.forEach((word) => {
+          expect($span.text()).to.include(word);
+        });
+      });
+    }
   }
 
   selectVariantType(variantType: string){
