@@ -68,7 +68,7 @@ describe("Build Your Own - Impreza 2.0i Premium AWD Sedan", () => {
     $PageObject.selectColour(colorIndex,variantColourOptions[colorIndex]);
     $PageObject.validateCarImgSrc(imprezaPageElements.imgSrc.SedanPremium[colorIndex]);
     $PageObject.clickShowFullSummary();
-    $PageObject.validateColourSummaryAmount();
+    $PageObject.validateColourSummaryZeroAmount();
   });
 
   it("CY_09 - 'Interior' section should display correct swatch names (eg. No special characters & numbers)", () => {
@@ -88,7 +88,7 @@ describe("Build Your Own - Impreza 2.0i Premium AWD Sedan", () => {
     $PageObject.selectInterior(interiorIndex,variantInteriorOptions[interiorIndex]);
     $PageObject.validateCarImgSrc(imprezaPageElements.imgSrc.SedanPremium[0]);
     $PageObject.clickShowFullSummary();
-    $PageObject.validateInteriorSummaryAmount();
+    $PageObject.validateInteriorSummaryZeroAmount();
   });
 
   it("CY_11 - 'Show features' hyperlink under 'Options' section should display accessories", () => {
@@ -237,8 +237,8 @@ describe("Build Your Own - Impreza 2.0i Premium AWD Sedan", () => {
     $PageObject.clickShowFullSummary();
 
     $PageObject.validateServicePlanSummaryAmount(0);
-    $PageObject.validateColourSummaryAmount();
-    $PageObject.validateInteriorSummaryAmount();
+    $PageObject.validateColourSummaryZeroAmount();
+    $PageObject.validateInteriorSummaryZeroAmount();
     $PageObject.validateOptionsSummaryAmount(optionsIndex);
     $PageObject.validateSelectedAccessoriesOnSummary(configurePageElements.protectionAccordion,protectionIndex,true);
   })

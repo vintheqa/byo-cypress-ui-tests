@@ -157,7 +157,7 @@ export class PageObject {
     cy.get('img[data-test="image:variant:0"]').should('have.attr','src',imgSrc);
   }
 
-  validateColourSummaryAmount() {
+  validateColourSummaryZeroAmount() {
     cy.get('div[data-test="summary_expanded:section:subaru_colour"]').scrollIntoView();
     cy.get('div[data-test="summary_expanded:section:subaru_colour"]').find('span').contains('$0.00');
     cy.get('span[data-test*="summary:selected:featureTitle"]').eq(0).invoke('text').then((selectedColour)=>{
@@ -181,7 +181,7 @@ export class PageObject {
     cy.get('span[data-test*="summary:selected:featureTitle"]').eq(1).invoke('text').should('eq',interiorName)
   }
 
-  validateInteriorSummaryAmount() {
+  validateInteriorSummaryZeroAmount() {
     cy.get('div[data-test="summary_expanded:section:subaru_interior"]').scrollIntoView();
     cy.get('div[data-test="summary_expanded:section:subaru_interior"]').find('span').contains('$0.00');
   }
