@@ -1,5 +1,7 @@
 export * from "./brzPage";
 export * from "./configurePage";
+export * from "./crosstrekPage";
+export * from "./foresterPage";
 export * from "./homePageElements";
 export * from "./imprezaPage";
 export * from "./outbackPage";

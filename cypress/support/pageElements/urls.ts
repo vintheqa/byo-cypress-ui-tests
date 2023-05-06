@@ -3,5 +3,6 @@ wrxVariantSelectionPage:'https://www.subaru.com.au/configure/trim-levels/AUWRX/s
 imprezaVariantSelectionPage:'https://www.subaru.com.au/configure/trim-levels/AUIMP/specificationPack?marketingCategory=Sedan&postcode=4000',
 brzVariantSelectionPage:'https://www.subaru.com.au/configure/trim-levels/AUBRZ/specificationPack?marketingCategory=Manual&postcode=4000&transmissionType=gearbox-manual',
 outbackVariantSelectionPage:'https://www.subaru.com.au/configure/trim-levels/AUOUT/specificationPack?postcode=4000',
-crosstekVariantSelectionPage:'https://www.subaru.com.au/configure/trim-levels/AUWRX/specificationPack?marketingCategory=Sedan&postcode=4000&transmissionType=gearbox-manual',
+foresterVariantSelectionPage: 'https://www.subaru.com.au/configure/trim-levels/AUFOR/specificationPack?fuelType=engine-petrol&marketingCategory=Petrol&postcode=4000',
+crosstekVariantSelectionPage:'https://www.subaru.com.au/configure/trim-levels/AUCT/specificationPack?fuelType=engine-petrol&marketingCategory=Petrol&postcode=4000',
 };

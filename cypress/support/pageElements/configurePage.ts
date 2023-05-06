@@ -22,18 +22,6 @@ cargoTowAccordion: 'div[data-test="accordion:category:Cargo & Tow"]',
 securityAccordion: 'div[data-test="accordion:category:Security"]',
 convenienceSafetyAccordion: 'div[data-test="accordion:category:Convenience & Safety"]',
 
-/*
-protectionSummaryAmount:'h3[data-test="summary:selected:sectionTitle:Protection"]',
-performancePartsSummaryAmount:'h3[data-test="summary:selected:sectionTitle:STI Performance Parts""]',
-stylingSummaryAmount:'h3[data-test="summary:selected:sectionTitle:Styling"]',
-cargoSummaryAmount:'h3[data-test="summary:selected:sectionTitle:Cargo"]',
-
-
-cargoTowSummaryAmount: 'div[data-test="summary:selected:sectionTitle:Cargo & Tow"]',
-securitySummaryAmount: 'div[data-test="accordion:category:Security"]',
-convenienceSafetySummaryAmount: 'div[data-test="accordion:category:Convenience & Safety"]',
-*/
-
 servicePlanSummaryAmount:'div[data-test="summary_expanded:section:serviceplans"]',
 servicePlansTabButton: 'button[data-test="common:navBarButton:serviceplans"]',
 servicePlansAccordion: 'h3[data-test="accordion:toggle:sectionTitle:Service Plans"]',

@@ -2,11 +2,11 @@ import {PageObject} from "../../support/pageObjects"
 import { configurePageElements, outbackPageElements, urls} from "../../support/pageElements";
 
 const $PageObject = new PageObject();
-const variantColourCount: number = outbackPageElements.outbackAwdSportColorOptions.length
-const variantColourOptions = outbackPageElements.outbackAwdSportColorOptions
-const variantInteriorCount: number = outbackPageElements.outbackInteriorOptions.awdSportXT.length
+const variantColourCount: number = outbackPageElements.colorOptions.awdSport.length
+const variantColourOptions = outbackPageElements.colorOptions.awdSport
+const variantInteriorCount: number = outbackPageElements.interiorOptions.awdSportXT.length
 const variantStylingPackCount: number = 6
-const variantInteriorOptions = outbackPageElements.outbackInteriorOptions.awdSportXT
+const variantInteriorOptions = outbackPageElements.interiorOptions.awdSportXT
 const modelCode = 'AUOUT'
 const variantCode = 'AUOW24TSA'
 

@@ -68,8 +68,14 @@ export class PageObject {
   }
 
   goToVariantSelectionPage(variantPageurl: string){
+    if(variantPageurl == urls.crosstekVariantSelectionPage){
+      cy.visit(variantPageurl);
+      this.closeViewStockModal();
+      cy.get('span').contains('Configure Your New ').should('be.visible');
+    }else{
       cy.visit(variantPageurl)
       cy.get('span').contains('Configure Your New ').should('be.visible');
+    }
   }
 
   validateVariantTypesAndVariantCount(variantType: string, variantCount: number){
@@ -398,15 +404,12 @@ goToCheckoutPage() {
   cy.get(configurePageElements.buyOnlineButton).click();
   cy.get('p').contains('Order Summary').should('be.visible',{timeout:120000});
   cy.url().should('include','/build-your-own/order/details');
-
 }
 
-
-
-
-
-
-
-
+closeViewStockModal() {
+  cy.wait(1000);
+  cy.get('div[id="view-stock-modal"]').should('exist',{timeout:30000});
+  cy.get('div[id="view-stock-modal"]').find('span').contains('Close').click({force:true});
+}
 
 }

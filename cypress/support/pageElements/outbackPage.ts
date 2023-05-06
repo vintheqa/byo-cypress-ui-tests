@@ -11,41 +11,45 @@ export const outbackPageElements = {
     "Outback AWD Touring XT"
   ],
 
-  outbackAwdColorOptions: [
-    "Crystal White Pearl",
-    "Ice Silver Metallic",
-    "Brilliant Bronze Metallic",
-    "Crimson Red Pearl",
-    "Storm Grey Metallic",
-    "Autumn Green Metallic",
-    "Sapphire Blue Pearl",
-    "Magnetite Grey Metallic",
-    "Crystal Black Silica",
-  ],
+  colorOptions: {
+    "awd": [
+      "Crystal White Pearl",
+      "Ice Silver Metallic",
+      "Brilliant Bronze Metallic",
+      "Crimson Red Pearl",
+      "Storm Grey Metallic",
+      "Autumn Green Metallic",
+      "Sapphire Blue Pearl",
+      "Magnetite Grey Metallic",
+      "Crystal Black Silica",
+    ],
+  
+    "awdSport": [
+      "Crystal White Pearl",
+      "Ice Silver Metallic",
+      "Autumn Green Metallic",
+      "Sapphire Blue Pearl",
+      "Magnetite Grey Metallic",
+      "Crystal Black Silica",
+    ],
+  
+    "awdTouring": [
+      "Crystal White Pearl",
+      "Ice Silver Metallic",
+      "Brilliant Bronze Metallic",
+      "Crimson Red Pearl",
+      "Storm Grey Metallic",
+      "Autumn Green Metallic",
+      "Sapphire Blue Pearl",
+      "Magnetite Grey Metallic",
+      "Crystal Black Silica",
+    ]
+  },
 
-  outbackAwdSportColorOptions: [
-    "Crystal White Pearl",
-    "Ice Silver Metallic",
-    "Autumn Green Metallic",
-    "Sapphire Blue Pearl",
-    "Magnetite Grey Metallic",
-    "Crystal Black Silica",
-  ],
-
-  outbackAwdTouringColorOptions: [
-    "Crystal White Pearl",
-    "Ice Silver Metallic",
-    "Brilliant Bronze Metallic",
-    "Crimson Red Pearl",
-    "Storm Grey Metallic",
-    "Autumn Green Metallic",
-    "Sapphire Blue Pearl",
-    "Magnetite Grey Metallic",
-    "Crystal Black Silica",
-  ],
+  
 
 
-  outbackInteriorOptions: {
+  interiorOptions: {
     "awd" : ['Cloth - Black'],
     "awdSport" : ['Water repellent^ - Grey and Black'],
     "awdTouring" : [
