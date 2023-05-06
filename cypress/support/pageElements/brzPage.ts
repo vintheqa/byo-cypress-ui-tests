@@ -13,7 +13,7 @@ export const brzPageElements = {
     "BRZ Coupe S"
   ],
 
-  brzColorOptions: [
+  colorOptions: {"allVariants":[
     "Crystal White Pearl",
     "Ice Silver Metallic",
     "Ignition Red",
@@ -21,10 +21,10 @@ export const brzPageElements = {
     "Sapphire Blue Pearl",
     "Magnetite Grey Metallic",
     "Crystal Black Silica",
-  ],
+  ]},
 
 
-  brzInteriorOptions: {
+  interiorOptions: {
     "coupe" : ['Cloth - Black'],
     "coupeS": ['Ultrasuede® and leather accented – black'],
   },
