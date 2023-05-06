@@ -2,11 +2,11 @@ import {PageObject} from "../../support/pageObjects"
 import { configurePageElements, imprezaPageElements, urls} from "../../support/pageElements";
 
 const $PageObject = new PageObject();
-const variantColourCount: number = imprezaPageElements.imprezaHatchSColorOptions.length
-const variantColourOptions = imprezaPageElements.imprezaHatchSColorOptions
-const variantInteriorCount: number = imprezaPageElements.imprezaInteriorOptions.HatchSpecEdition.length
+const variantColourCount: number = imprezaPageElements.colorOptions.hatch.length
+const variantColourOptions = imprezaPageElements.colorOptions.hatch
+const variantInteriorCount: number = imprezaPageElements.interiorOptions.HatchSpecEdition.length
 const variantStylingPackCount: number = 2
-const variantInteriorOptions = imprezaPageElements.imprezaInteriorOptions.HatchSpecEdition
+const variantInteriorOptions = imprezaPageElements.interiorOptions.HatchSpecEdition
 const modelCode = 'AUIMP'
 const variantCode = 'AUGT7FKBL_S'
 

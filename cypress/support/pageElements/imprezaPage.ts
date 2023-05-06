@@ -16,32 +16,36 @@ export const imprezaPageElements = {
     "Impreza 2.0i-L AWD Hatch",
   ],
 
-  imprezaSedanColorOptions: [
-    "Crystal White Pearl",
-    "Ice Silver Metallic",
-    "Pure Red",
-    "Sapphire Blue Pearl",
-    "Magnetite Grey Metallic",
-    "Crystal Black Silica",
-  ],
+  colorOptions: {
+    "sedan": [
+      "Crystal White Pearl",
+      "Ice Silver Metallic",
+      "Pure Red",
+      "Sapphire Blue Pearl",
+      "Magnetite Grey Metallic",
+      "Crystal Black Silica",
+    ],
+  
+    "hatchS": [
+      "Crystal White Pearl",
+      "Magnetite Grey Metallic",
+      "Crystal Black Silica",
+      "Pure Red",
+    ],
+  
+    "hatch": [
+      "Crystal White Pearl",
+      "Ice Silver Metallic",
+      "Pure Red",
+      "Sapphire Blue Pearl",
+      "Magnetite Grey Metallic",
+      "Crystal Black Silica",
+    ],
+  },
 
-  imprezaHatchSColorOptions: [
-    "Crystal White Pearl",
-    "Magnetite Grey Metallic",
-    "Crystal Black Silica",
-    "Pure Red",
-  ],
 
-  imprezaHatchColorOptions: [
-    "Crystal White Pearl",
-    "Ice Silver Metallic",
-    "Pure Red",
-    "Sapphire Blue Pearl",
-    "Magnetite Grey Metallic",
-    "Crystal Black Silica",
-  ],
 
-  imprezaInteriorOptions: {
+  interiorOptions: {
     "SedanPremium" : ['Premium Ivory Cloth','Premium Black Cloth'],
     "SedanS": ['Black Leather','Ivory Leather'],
     "SedanL" : ['Premium Black Cloth','Premium Ivory Cloth'],

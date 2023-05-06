@@ -2,11 +2,11 @@ import {PageObject} from "../../support/pageObjects"
 import { configurePageElements, brzPageElements, urls} from "../../support/pageElements";
 
 const $PageObject = new PageObject();
-const variantColourCount: number = brzPageElements.brzColorOptions.length
-const variantColourOptions = brzPageElements.brzColorOptions
-const variantInteriorCount: number = brzPageElements.brzInteriorOptions.coupeS.length
+const variantColourCount: number = brzPageElements.colorOptions.allVariants.length
+const variantColourOptions = brzPageElements.colorOptions.allVariants
+const variantInteriorCount: number = brzPageElements.interiorOptions.coupeS.length
 const variantStylingPackCount: number = 1
-const variantInteriorOptions = brzPageElements.brzInteriorOptions.coupeS
+const variantInteriorOptions = brzPageElements.interiorOptions.coupeS
 const modelCode = 'AUBRZ'
 const variantCode = 'AUZD8BKF7'
 
