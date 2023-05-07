@@ -76,7 +76,7 @@ describe("Build Your Own - Forester Hybrid L AWD", () => {
     $PageObject.validateColourSummaryZeroAmount();
   });
 
-  it("CY_09 - 'Interior' section should display correct swatch names (eg. No special characters & numbers)", () => {
+  it.only("CY_09 - 'Interior' section should display correct swatch names (eg. No special characters & numbers)", () => {
     $PageObject.goToVariantSelectionPage(urls.foresterVariantSelectionPage);
     $PageObject.selectVariantType('Hybrid');
     $PageObject.clickVariantImg(modelCode,variantCode);

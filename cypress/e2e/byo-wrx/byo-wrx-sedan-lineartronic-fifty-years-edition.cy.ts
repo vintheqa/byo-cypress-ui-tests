@@ -2,15 +2,15 @@ import {PageObject} from "../../support/pageObjects"
 import { configurePageElements, wrxPageElements, urls} from "../../support/pageElements";
 
 const $PageObject = new PageObject();
-const variantColourCount: number = wrxPageElements.colorOptions.sedanAwdRsSportLineartronic.length
-const variantColourOptions = wrxPageElements.colorOptions.sedanAwdRsSportLineartronic
-const variantInteriorCount: number = wrxPageElements.interiorOptions.sedanAwdRsSportLineartronic.length
+const variantColourCount: number = wrxPageElements.colorOptions.sedanAwdLineartronicFiftyYearsEdition.length
+const variantColourOptions = wrxPageElements.colorOptions.sedanAwdLineartronicFiftyYearsEdition
+const variantInteriorCount: number = wrxPageElements.interiorOptions.sedanAwdLineartronicFiftyYearsEdition.length
 const variantStylingPackCount: number = 4
-const variantInteriorOptions = wrxPageElements.interiorOptions.sedanAwdRsSportLineartronic
+const variantInteriorOptions = wrxPageElements.interiorOptions.sedanAwdLineartronicFiftyYearsEdition
 const modelCode = 'AUWRX'
-const variantCode = 'AUVBHCKL8'
+const variantCode = 'AUVBHCKJ8_62'
 
-let protectionIndex = $PageObject.getRandomNumber(5-1);
+let protectionIndex = $PageObject.getRandomNumber(4-1);
 let performanceIndex = $PageObject.getRandomNumber(13-1);
 let stylingIndex = $PageObject.getRandomNumber(12-1);
 let cargoIndex = $PageObject.getRandomNumber(2-1);
@@ -18,8 +18,7 @@ let colorIndex = $PageObject.getRandomNumber(variantColourCount-1);
 let interiorIndex = $PageObject.getRandomNumber(variantInteriorCount-1);
 let optionsIndex = $PageObject.getRandomNumber(variantStylingPackCount-1);
 
-
-describe("Build Your Own - WRX AWD Sport Lineartronic®", () => {
+describe("Build Your Own - WRX AWD 50 Years Edition Lineartronic®", () => {
 
   it("CY_04 - Clicking of 'Build and Price' on any variant  on the variant landing page will redirect user to configurator page", () => {
     $PageObject.goToRootPage();
@@ -33,7 +32,7 @@ describe("Build Your Own - WRX AWD Sport Lineartronic®", () => {
     $PageObject.goToVariantSelectionPage(urls.wrxVariantSelectionPage);
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode)
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(5);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(3);
     $PageObject.validateFullSpecModalSectionAndSubSectionHeaders(wrxPageElements.specsAndFeatureModalSubSections);
   });
 
@@ -41,7 +40,7 @@ describe("Build Your Own - WRX AWD Sport Lineartronic®", () => {
     $PageObject.goToVariantSelectionPage(urls.wrxVariantSelectionPage);
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode)
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(5);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(3);
     $PageObject.closeViewFullSpecModal();  
   });
 
@@ -55,10 +54,6 @@ describe("Build Your Own - WRX AWD Sport Lineartronic®", () => {
     $PageObject.selectColour(1,variantColourOptions[1]);
     $PageObject.selectColour(2,variantColourOptions[2]);
     $PageObject.selectColour(3,variantColourOptions[3]);
-    $PageObject.selectColour(4,variantColourOptions[4]);
-    $PageObject.selectColour(5,variantColourOptions[5]);
-    $PageObject.selectColour(6,variantColourOptions[6]);
-    $PageObject.selectColour(7,variantColourOptions[7]);
   });
 
   it("CY_08 - Ability to select any variant color", () => {
@@ -67,7 +62,7 @@ describe("Build Your Own - WRX AWD Sport Lineartronic®", () => {
     $PageObject.selectVariant(modelCode,variantCode)
     $PageObject.clickColourTab();
     $PageObject.selectColour(colorIndex,variantColourOptions[colorIndex]);
-    $PageObject.validateCarImgSrc(wrxPageElements.imgSrc.sedanAwdRsSportLineartronic[colorIndex]);
+    $PageObject.validateCarImgSrc(wrxPageElements.imgSrc.sedanAwdLineartronicFiftyYearsEdition[colorIndex]);
     $PageObject.clickShowFullSummary();
     $PageObject.validateColourSummaryZeroAmount();
   });
@@ -87,7 +82,7 @@ describe("Build Your Own - WRX AWD Sport Lineartronic®", () => {
     $PageObject.selectVariant(modelCode,variantCode)
     $PageObject.clickInteriorTab();
     $PageObject.selectInterior(interiorIndex,variantInteriorOptions[interiorIndex]);
-    $PageObject.validateCarImgSrc(wrxPageElements.imgSrc.sedanAwdRsSportLineartronic[0]);
+    $PageObject.validateCarImgSrc(wrxPageElements.imgSrc.sedanAwdLineartronicFiftyYearsEdition[0]);
     $PageObject.clickShowFullSummary();
     $PageObject.validateInteriorSummaryZeroAmount();
   });

@@ -2,11 +2,11 @@ import {PageObject} from "../../support/pageObjects"
 import { configurePageElements, wrxPageElements, urls} from "../../support/pageElements";
 
 const $PageObject = new PageObject();
-const variantColourCount: number = wrxPageElements.wrxSportswagonColorOptions.length
-const variantColourOptions = wrxPageElements.wrxSportswagonColorOptions
-const variantInteriorCount: number = 1
+const variantColourCount: number = wrxPageElements.colorOptions.sportswagonAwdTs.length
+const variantColourOptions = wrxPageElements.colorOptions.sportswagonAwdTs
+const variantInteriorCount: number = wrxPageElements.interiorOptions.sportswagonAwdTs.length
 const variantStylingPackCount: number = 1
-const variantInteriorOptions = wrxPageElements.wrxInteriorOptions[4]
+const variantInteriorOptions = wrxPageElements.interiorOptions.sportswagonAwdTs
 const modelCode = 'AUWRX'
 const variantCode = 'AUVNHCKB8'
 
@@ -15,6 +15,7 @@ let performanceIndex = $PageObject.getRandomNumber(8-1);
 let stylingIndex = $PageObject.getRandomNumber(13-1);
 let cargoIndex = $PageObject.getRandomNumber(6-1);
 let colorIndex = $PageObject.getRandomNumber(variantColourCount-1);
+let interiorIndex = $PageObject.getRandomNumber(variantInteriorCount-1);
 let optionsIndex = $PageObject.getRandomNumber(variantStylingPackCount-1);
 
 
@@ -33,7 +34,7 @@ describe("Build Your Own - WRX AWD Sportswagon TS", () => {
     $PageObject.goToVariantSelectionPage(urls.wrxVariantSelectionPage);
     $PageObject.selectVariantType('Sportswagon');
     $PageObject.selectVariant(modelCode,variantCode);
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(2);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(3);
     $PageObject.validateFullSpecModalSectionAndSubSectionHeaders(wrxPageElements.specsAndFeatureModalSubSections);
   });
 
@@ -41,7 +42,7 @@ describe("Build Your Own - WRX AWD Sportswagon TS", () => {
     $PageObject.goToVariantSelectionPage(urls.wrxVariantSelectionPage);
     $PageObject.selectVariantType('Sportswagon');
     $PageObject.selectVariant(modelCode,variantCode);
-    $PageObject.clickViewFullSpecLinkOnVariantContainer(2);
+    $PageObject.clickViewFullSpecLinkOnVariantContainer(3);
     $PageObject.closeViewFullSpecModal();  
   });
 
@@ -66,7 +67,7 @@ describe("Build Your Own - WRX AWD Sportswagon TS", () => {
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickColourTab();
     $PageObject.selectColour(colorIndex,variantColourOptions[colorIndex]);
-    $PageObject.validateCarImgSrc(wrxPageElements.imgSrcWrxSportswagonAwdTs[colorIndex]);
+    $PageObject.validateCarImgSrc(wrxPageElements.imgSrc.sportswagonAwdTs[colorIndex]);
     $PageObject.clickShowFullSummary();
     $PageObject.validateColourSummaryZeroAmount();
   });
@@ -77,7 +78,7 @@ describe("Build Your Own - WRX AWD Sportswagon TS", () => {
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickInteriorTab();
     $PageObject.validateNumOfInteriorOptions(variantInteriorCount);
-    $PageObject.selectInterior(0,variantInteriorOptions);
+    $PageObject.selectInterior(interiorIndex,variantInteriorOptions[interiorIndex]);
   });
 
   it("CY_10 - Ability to select any interior", () => {
@@ -85,8 +86,8 @@ describe("Build Your Own - WRX AWD Sportswagon TS", () => {
     $PageObject.selectVariantType('Sportswagon');
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickInteriorTab();
-    $PageObject.selectInterior(0,variantInteriorOptions);
-    $PageObject.validateCarImgSrc(wrxPageElements.imgSrcWrxSportswagonAwdTs[0]);
+    $PageObject.selectInterior(interiorIndex,variantInteriorOptions[interiorIndex]);
+    $PageObject.validateCarImgSrc(wrxPageElements.imgSrc.sportswagonAwdTs[0]);
     $PageObject.clickShowFullSummary();
     $PageObject.validateInteriorSummaryZeroAmount();
   });
@@ -212,7 +213,7 @@ describe("Build Your Own - WRX AWD Sportswagon TS", () => {
     $PageObject.selectColour(colorIndex,variantColourOptions[colorIndex]);
 
     $PageObject.clickInteriorTab();
-    $PageObject.selectInterior(0,variantInteriorOptions);
+    $PageObject.selectInterior(interiorIndex,variantInteriorOptions[interiorIndex]);
   
     $PageObject.clickOptionsTab();
     $PageObject.selectAddOptionPack(optionsIndex);
@@ -270,7 +271,7 @@ describe("Build Your Own - WRX AWD Sportswagon TS", () => {
     $PageObject.selectColour(2,variantColourOptions[2]);
 
     $PageObject.clickInteriorTab();
-    $PageObject.selectInterior(0,variantInteriorOptions);
+    $PageObject.selectInterior(interiorIndex,variantInteriorOptions[interiorIndex]);
   
     $PageObject.clickOptionsTab();
     $PageObject.selectAddStylingPack(0);

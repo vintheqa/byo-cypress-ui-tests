@@ -282,7 +282,7 @@ describe("Build Your Own - Impreza 2.0i-L AWD Hatch", () => {
     $PageObject.selectColour(2,variantColourOptions[2]);
 
     $PageObject.clickInteriorTab();
-    $PageObject.selectInterior(0,variantInteriorOptions);
+    $PageObject.selectInterior(interiorIndex,variantInteriorOptions[interiorIndex]);
   
     $PageObject.clickOptionsTab();
     $PageObject.selectAddStylingPack(0);

@@ -2,11 +2,11 @@ import {PageObject} from "../../support/pageObjects"
 import { configurePageElements, wrxPageElements, urls} from "../../support/pageElements";
 
 const $PageObject = new PageObject();
-const variantColourCount: number = wrxPageElements.wrxSedanColorOptions.length
-const variantColourOptions = wrxPageElements.wrxSedanColorOptions
-const variantInteriorCount: number = 1
+const variantColourCount: number = wrxPageElements.colorOptions.sedanAwdManual.length
+const variantColourOptions = wrxPageElements.colorOptions.sedanAwdManual
+const variantInteriorCount: number = wrxPageElements.interiorOptions.sedanAwdManual.length
 const variantStylingPackCount: number = 4
-const variantInteriorOptions = wrxPageElements.wrxInteriorOptions[0]
+const variantInteriorOptions = wrxPageElements.interiorOptions.sedanAwdManual
 const modelCode = 'AUWRX'
 const variantCode = 'AUVBHCKE6'
 
@@ -15,6 +15,7 @@ let performanceIndex = $PageObject.getRandomNumber(13-1);
 let stylingIndex = $PageObject.getRandomNumber(14-1);
 let cargoIndex = $PageObject.getRandomNumber(2-1);
 let colorIndex = $PageObject.getRandomNumber(variantColourCount-1);
+let interiorIndex = $PageObject.getRandomNumber(variantInteriorCount-1);
 let optionsIndex = $PageObject.getRandomNumber(variantStylingPackCount-1);
 
 describe("Build Your Own - WRX AWD Manual", () => {
@@ -65,7 +66,7 @@ describe("Build Your Own - WRX AWD Manual", () => {
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickColourTab();
     $PageObject.selectColour(colorIndex,variantColourOptions[colorIndex]);
-    $PageObject.validateCarImgSrc(wrxPageElements.imgSrcWrxSedanAwdManual[colorIndex]);
+    $PageObject.validateCarImgSrc(wrxPageElements.imgSrc.sedanAwdManual[colorIndex]);
     $PageObject.clickShowFullSummary();
     $PageObject.validateColourSummaryZeroAmount();
   });
@@ -76,7 +77,7 @@ describe("Build Your Own - WRX AWD Manual", () => {
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickInteriorTab();
     $PageObject.validateNumOfInteriorOptions(variantInteriorCount);
-    $PageObject.selectInterior(0,variantInteriorOptions);
+    $PageObject.selectInterior(interiorIndex,variantInteriorOptions[interiorIndex]);
   });
 
   it("CY_10 - Ability to select any interior", () => {
@@ -84,8 +85,8 @@ describe("Build Your Own - WRX AWD Manual", () => {
     $PageObject.selectVariantType('Sedan');
     $PageObject.selectVariant(modelCode,variantCode);
     $PageObject.clickInteriorTab();
-    $PageObject.selectInterior(0,variantInteriorOptions);
-    $PageObject.validateCarImgSrc(wrxPageElements.imgSrcWrxSedanAwdManual[0]);
+    $PageObject.selectInterior(interiorIndex,variantInteriorOptions[interiorIndex]);
+    $PageObject.validateCarImgSrc(wrxPageElements.imgSrc.sedanAwdManual[0]);
     $PageObject.clickShowFullSummary();
     $PageObject.validateInteriorSummaryZeroAmount();
   });
@@ -211,7 +212,7 @@ describe("Build Your Own - WRX AWD Manual", () => {
     $PageObject.selectColour(colorIndex,variantColourOptions[colorIndex]);
 
     $PageObject.clickInteriorTab();
-    $PageObject.selectInterior(0,variantInteriorOptions);
+    $PageObject.selectInterior(interiorIndex,variantInteriorOptions[interiorIndex]);
   
     $PageObject.clickOptionsTab();
     $PageObject.selectAddOptionPack(optionsIndex);
@@ -269,7 +270,7 @@ describe("Build Your Own - WRX AWD Manual", () => {
     $PageObject.selectColour(2,variantColourOptions[2]);
 
     $PageObject.clickInteriorTab();
-    $PageObject.selectInterior(0,variantInteriorOptions);
+    $PageObject.selectInterior(interiorIndex,variantInteriorOptions[interiorIndex]);
   
     $PageObject.clickOptionsTab();
     $PageObject.selectAddStylingPack(0);
