@@ -20,14 +20,14 @@ export const foresterPageElements = {
   ],
 
   colorOptions: {
-    "25XSpecialEdition":[
+    "awdXSpecialEdition":[
         "Crystal White Pearl",
         "Ice Silver Metallic",
         "Brilliant Bronze Metallic",
         "Crimson Red Pearl",
         "Horizon Blue Pearl",
         "Magnetite Grey Metallic"],
-    "25i":[
+    "awd":[
         "Crystal White Pearl",
         "Ice Silver Metallic",
         "Brilliant Bronze Metallic",
@@ -37,24 +37,14 @@ export const foresterPageElements = {
         "Cascade Green Silica",
         "Magnetite Grey Metallic",
         "Crystal Black Silica"],
-    "25i50YearEdition":[
+    "awdFiftyYearEdition":[
         "Crystal White Pearl",
         "Ice Silver Metallic",
         "Crimson Red Pearl",
         "Horizon Blue Pearl",
         "Magnetite Grey Metallic",
         "Crystal Black Silica"],
-    "25iL":[
-        "Crystal White Pearl",
-        "Ice Silver Metallic",
-        "Brilliant Bronze Metallic",
-        "Crimson Red Pearl",
-        "Autumn Green Metallic",
-        "Horizon Blue Pearl",
-        "Cascade Green Silica",
-        "Magnetite Grey Metallic",
-        "Crystal Black Silica"],
-    "25iPremium":[
+    "awdL":[
         "Crystal White Pearl",
         "Ice Silver Metallic",
         "Brilliant Bronze Metallic",
@@ -64,13 +54,23 @@ export const foresterPageElements = {
         "Cascade Green Silica",
         "Magnetite Grey Metallic",
         "Crystal Black Silica"],
-    "25iSport":[
+   "awdPremium":[
+        "Crystal White Pearl",
+        "Ice Silver Metallic",
+        "Brilliant Bronze Metallic",
+        "Crimson Red Pearl",
+        "Autumn Green Metallic",
+        "Horizon Blue Pearl",
+        "Cascade Green Silica",
+        "Magnetite Grey Metallic",
+        "Crystal Black Silica"],
+    "awdSport":[
         "Crystal White Pearl",
         "Ice Silver Metallic",
         "Sapphire Blue Pearl",
         "Magnetite Grey Metallic",
         "Crystal Black Silica"],
-    "25iS":[
+   "awdS":[
         "Crystal White Pearl",
         "Ice Silver Metallic",
         "Brilliant Bronze Metallic",
@@ -80,7 +80,7 @@ export const foresterPageElements = {
         "Cascade Green Silica",
         "Magnetite Grey Metallic",
         "Crystal Black Silica"],
-    "25iS50YearEdition":[
+    "awdSFiftyYearEdition":[
         "Crystal White Pearl",
         "Ice Silver Metallic",
         "Brilliant Bronze Metallic",
@@ -90,7 +90,7 @@ export const foresterPageElements = {
         "Cascade Green Silica",
         "Magnetite Grey Metallic",
         "Crystal Black Silica"],
-    "hyrbridL":[
+    "hybridL":[
         "Crystal White Pearl",
         "Ice Silver Metallic",
         "Brilliant Bronze Metallic",
@@ -100,7 +100,7 @@ export const foresterPageElements = {
         "Cascade Green Silica",
         "Magnetite Grey Metallic",
         "Crystal Black Silica"],
-    "hyrbridS":[
+    "hybridS":[
         "Crystal White Pearl",
         "Ice Silver Metallic",
         "Brilliant Bronze Metallic",
@@ -114,34 +114,34 @@ export const foresterPageElements = {
 
 
       interiorOptions: {
-        "25XSpecialEdition":[
+        "awdXSpecialEdition":[
           "Cloth - Black"],
-        "25i":[
+        "awd":[
           "Cloth - Platinum/Black",
           "Cloth - Black"],
-        "25i50YearEdition":[
+        "awdFiftyYearEdition":[
           "Leather Accented - Black"],
-        "25iL":[
+        "awdL":[
           "Cloth - Platinum/Black",
           "Cloth - Black"],
-        "25iPremium":[
-          "Cloth - Platinum/Black",
-          "Cloth - Black"],
-        "25iSport":[
+       "awdPremium":[
+          "Premium Cloth - Platinum/Black",
+          "Premium Cloth - Black"],
+        "awdSport":[
             "Water Repellent Cloth - Grey/Black"],
-        "25iS":[
+       "awdS":[
             "Leather Accented - Platinum & Black",
             "Leather Accented - Black"],
-        "25iS50YearEdition":[
+        "awdSFiftyYearEdition":[
             "Leather Accented - Black"],
-        "hyrbridL":[
+        "hybridL":[
               "Premium Cloth - Black"],
-        "hyrbridS":[
+        "hybridS":[
               "Leather Accented - Black"],
           },
 
   imgSrc: {
-    "25XSpecialEdition":[
+    "awdXSpecialEdition":[
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3LX/?ex=1X&in=202&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3LX/?ex=1U&in=202&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3LX/?ex=CD&in=202&view=front",
@@ -149,7 +149,7 @@ export const foresterPageElements = {
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3LX/?ex=AZ&in=202&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3LX/?ex=8Y&in=202&view=front"
     ],
-    "25i":[
+    "awd":[
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3L/?ex=1X&in=701&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3L/?ex=1U&in=701&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3L/?ex=CD&in=701&view=front",
@@ -160,7 +160,7 @@ export const foresterPageElements = {
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3L/?ex=8Y&in=701&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3L/?ex=4S&in=701&view=front"
     ],
-    "25i50YearEdition":[
+    "awdFiftyYearEdition":[
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3L71/?ex=1X&in=204&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3L71/?ex=1U&in=204&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3L71/?ex=1Y&in=204&view=front",
@@ -168,7 +168,7 @@ export const foresterPageElements = {
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3L71/?ex=8Y&in=204&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3L71/?ex=4S&in=204&view=front"
     ],
-    "25iL":[
+    "awdL":[
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3LL/?ex=1X&in=701&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3LL/?ex=1U&in=701&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3LL/?ex=CD&in=701&view=front",
@@ -179,7 +179,7 @@ export const foresterPageElements = {
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3LL/?ex=8Y&in=701&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK3LL/?ex=4S&in=701&view=front"
     ],
-    "25iPremium":[
+   "awdPremium":[
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK9L/?ex=1X&in=705&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK9L/?ex=1U&in=705&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK9L/?ex=CD&in=705&view=front",
@@ -190,14 +190,14 @@ export const foresterPageElements = {
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK9L/?ex=8Y&in=705&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EK9L/?ex=4S&in=705&view=front"
     ],
-    "25iSport":[
+    "awdSport":[
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKCL/?ex=1X&in=401&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKCL/?ex=1U&in=401&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKCL/?ex=CH&in=401&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKCL/?ex=8Y&in=401&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKCL/?ex=4S&in=401&view=front"
     ],
-    "25iS":[
+   "awdS":[
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKFL/?ex=1X&in=703&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKFL/?ex=1U&in=703&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKFL/?ex=CD&in=703&view=front",
@@ -208,7 +208,7 @@ export const foresterPageElements = {
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKFL/?ex=8Y&in=703&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKFL/?ex=4S&in=703&view=front"
     ],
-    "25iS50YearEdition":[
+    "awdSFiftyYearEdition":[
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKFL68/?ex=1X&in=204&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKFL68/?ex=1U&in=204&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKFL68/?ex=CD&in=204&view=front",
@@ -219,7 +219,7 @@ export const foresterPageElements = {
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKFL68/?ex=8Y&in=204&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKFL68/?ex=4S&in=204&view=front"
     ],
-    "hyrbridL":[
+    "hybridL":[
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKFL68/?ex=1X&in=204&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKFL68/?ex=1U&in=204&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKFL68/?ex=CD&in=204&view=front",
@@ -230,7 +230,7 @@ export const foresterPageElements = {
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKFL68/?ex=8Y&in=204&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSK9EKFL68/?ex=4S&in=204&view=front"
     ],
-    "hyrbridS":[
+    "hybridS":[
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSKEEKFL/?ex=1X&in=204&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSKEEKFL/?ex=1U&in=204&view=front",
       "https://img.inchcapedigital.com/inchcosy/v2/subaruauasset/AUSKEEKFL/?ex=CD&in=204&view=front",
